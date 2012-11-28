@@ -21,6 +21,7 @@
 		23304B0B1665AFDB00705054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23304AEC1665AFDA00705054 /* Foundation.framework */; };
 		23304B131665AFDB00705054 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23304B111665AFDB00705054 /* InfoPlist.strings */; };
 		23304B161665AFDB00705054 /* hAPI_SDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B151665AFDB00705054 /* hAPI_SDKTests.m */; };
+		23304B211665B05400705054 /* MHOAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B201665B05400705054 /* MHOAuthManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		23304B121665AFDB00705054 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23304B141665AFDB00705054 /* hAPI_SDKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hAPI_SDKTests.h; sourceTree = "<group>"; };
 		23304B151665AFDB00705054 /* hAPI_SDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hAPI_SDKTests.m; sourceTree = "<group>"; };
+		23304B1F1665B05400705054 /* MHOAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHOAuthManager.h; sourceTree = "<group>"; };
+		23304B201665B05400705054 /* MHOAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHOAuthManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 		23304AF01665AFDA00705054 /* hAPI SDK */ = {
 			isa = PBXGroup;
 			children = (
+				23304B1F1665B05400705054 /* MHOAuthManager.h */,
+				23304B201665B05400705054 /* MHOAuthManager.m */,
 				23304AF91665AFDA00705054 /* MHAppDelegate.h */,
 				23304AFA1665AFDA00705054 /* MHAppDelegate.m */,
 				23304AF11665AFDA00705054 /* Supporting Files */,
@@ -264,6 +269,7 @@
 			files = (
 				23304AF71665AFDA00705054 /* main.m in Sources */,
 				23304AFB1665AFDA00705054 /* MHAppDelegate.m in Sources */,
+				23304B211665B05400705054 /* MHOAuthManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
