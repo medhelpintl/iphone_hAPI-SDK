@@ -37,7 +37,7 @@ static MHOAuthManager *sharedManager = nil;
         }
     }
     
-    return sharedManager;
+    return sharedManager; 
 }
 
 - (void)setAuthCodeFromRequest:(NSURLRequest*)urlRequest
