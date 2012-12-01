@@ -7,11 +7,23 @@
 //
 
 #import "MHAppDelegate.h"
-
+#import "MHHealthData.h"
 @implementation MHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    MHHealthData *healthData = [[MHHealthData alloc] init];
+    
+    [healthData saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if (succeeded) {
+            NSLog(@"aewsome");
+        } else {
+            if (error) {
+                NSLog(@"error %@", error);
+            }
+        }
+    }];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
