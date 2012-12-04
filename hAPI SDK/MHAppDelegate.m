@@ -7,12 +7,12 @@
 //
 
 #import "MHAppDelegate.h"
-#import "MHHealthData.h"
+#import "MHObject.h"
 @implementation MHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    MHHealthData *healthData = [[MHHealthData alloc] init];
+    MHObject *healthData = [[MHObject alloc] init];
     
     [healthData saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (succeeded) {

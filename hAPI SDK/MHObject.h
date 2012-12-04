@@ -11,8 +11,7 @@
 @protocol MHHealthDataDelegate;
 
 //Or UserData?
-@interface MHHealthData : NSObject
-+ (NSArray*)queryForUser:(NSString*)userName withDataTypes:(NSArray*)dataTypes fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
+@interface MHObject : NSObject
 - (BOOL)save;
 - (BOOL)saveInBackground;
 - (void)saveInBackgroundWithBlock:(MHBooleanResultBlock)block;
@@ -21,14 +20,6 @@
 - (void)destroyInBackgroundWithBlock:(MHBooleanResultBlock)block;
 //- ( void )myMethodTakingPredicate: ( BOOL ( ^ )( int ) )predicate;
 @property (nonatomic, strong) NSString *uniqueId;
-@property (nonatomic, strong) NSString *userId;
-@property (nonatomic, strong) NSString *relativeId;
-@property (nonatomic, strong) NSString *fieldName;
-@property (nonatomic, strong) NSString *categoryName;
-@property (nonatomic, strong) NSString *sourceType;
-@property (nonatomic, strong) NSString *sourceId;
-@property (nonatomic, weak) id value;
-@property (nonatomic, weak) id<MHHealthDataDelegate> delegate;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,33 +34,33 @@
 /**
  * Called just before the health data is sent to the server.
  */
-- (void)willSave:(MHHealthData *)healthData;
+- (void)willSave:(MHObject *)healthData;
 
 /**
  * Called after the healthData is saved.
  */
-- (void)didSave:(MHHealthData *)healthData;
+- (void)didSave:(MHObject *)healthData;
 
 /**
  * Called if the 
  */
-- (void)saveDidFail:(MHHealthData*)healthData withError:(NSError*)error;
+- (void)saveDidFail:(MHObject*)healthData withError:(NSError*)error;
 
 
 /**
  * Called just before the health data is sent to the server.
  */
-- (void)willDestroy:(MHHealthData *)healthData;
+- (void)willDestroy:(MHObject *)healthData;
 
 /**
  * Called after the healthData is saved.
  */
-- (void)didDestroy:(MHHealthData *)healthData;
+- (void)didDestroy:(MHObject *)healthData;
 
 /**
  * Called if the
  */
-- (void)destroyDidFail:(MHHealthData*)healthData withError:(NSError*)error;
+- (void)destroyDidFail:(MHObject*)healthData withError:(NSError*)error;
 
 
 

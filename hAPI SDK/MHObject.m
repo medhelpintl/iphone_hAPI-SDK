@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Medhelp International. All rights reserved.
 //
 
-#import "MHHealthData.h"
+#import "MHObject.h"
 
-@implementation MHHealthData
+@implementation MHObject
 
 
 - (id)init
@@ -19,9 +19,6 @@
     return self;
 }
 
-+ (NSArray*)queryForUser:(NSString*)userName withDataTypes:(NSArray*)dataTypes fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate {
-    return [NSArray array];
-}
 - (BOOL)save:(NSError**)error {
     BOOL successful = YES;
     
