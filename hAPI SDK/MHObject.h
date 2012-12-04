@@ -8,18 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MHHealthDataDelegate;
+@protocol MHObjectDelegate;
 
 //Or UserData?
 @interface MHObject : NSObject
-- (BOOL)save;
-- (BOOL)saveInBackground;
+- (BOOL)save:(NSError**)error;
+- (BOOL)saveInBackground:(NSError**)error;
 - (void)saveInBackgroundWithBlock:(MHBooleanResultBlock)block;
 - (BOOL)destroy;
 - (BOOL)destroyInBackground;
 - (void)destroyInBackgroundWithBlock:(MHBooleanResultBlock)block;
 //- ( void )myMethodTakingPredicate: ( BOOL ( ^ )( int ) )predicate;
 @property (nonatomic, strong) NSString *uniqueId;
+@property (nonatomic, weak) id <MHObjectDelegate> delegate;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +28,7 @@
 /*
  *Your application should implement this delegate when saving or destroying data without a block
  */
-@protocol MHHealthDataDelegate <NSObject>
+@protocol MHObjectDelegate <NSObject>
 
 @optional
 

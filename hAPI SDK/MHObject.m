@@ -9,7 +9,8 @@
 #import "MHObject.h"
 
 @implementation MHObject
-
+@synthesize uniqueId = uniqueId_;
+@synthesize delegate = delegate_;
 
 - (id)init
 {
@@ -59,9 +60,11 @@
     BOOL successful = YES;
     return successful;
 }
+
 - (BOOL)destroyInBackground {
     return YES;
 }
+
 - (void)destroyInBackgroundWithBlock:(MHBooleanResultBlock)block {
     
 }

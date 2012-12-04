@@ -22,6 +22,7 @@
 		23304B131665AFDB00705054 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23304B111665AFDB00705054 /* InfoPlist.strings */; };
 		23304B161665AFDB00705054 /* hAPI_SDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B151665AFDB00705054 /* hAPI_SDKTests.m */; };
 		23304B211665B05400705054 /* MHOAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B201665B05400705054 /* MHOAuthManager.m */; };
+		23304B30166E896A00705054 /* MHHealthData.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B2F166E896A00705054 /* MHHealthData.m */; };
 		23A2299C16692412003B3688 /* MHObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299B16692412003B3688 /* MHObject.m */; };
 		23A2299F166932D5003B3688 /* MHAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299E166932D5003B3688 /* MHAPIManager.m */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,8 @@
 		23304B151665AFDB00705054 /* hAPI_SDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hAPI_SDKTests.m; sourceTree = "<group>"; };
 		23304B1F1665B05400705054 /* MHOAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHOAuthManager.h; sourceTree = "<group>"; };
 		23304B201665B05400705054 /* MHOAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHOAuthManager.m; sourceTree = "<group>"; };
+		23304B2E166E896A00705054 /* MHHealthData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHHealthData.h; sourceTree = "<group>"; };
+		23304B2F166E896A00705054 /* MHHealthData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHHealthData.m; sourceTree = "<group>"; };
 		23A22999166921BC003B3688 /* GlobalConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 		23A2299A16692412003B3688 /* MHObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHObject.h; sourceTree = "<group>"; };
 		23A2299B16692412003B3688 /* MHObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHObject.m; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				23A2299B16692412003B3688 /* MHObject.m */,
 				23A2299D166932D5003B3688 /* MHAPIManager.h */,
 				23A2299E166932D5003B3688 /* MHAPIManager.m */,
+				23304B2E166E896A00705054 /* MHHealthData.h */,
+				23304B2F166E896A00705054 /* MHHealthData.m */,
 			);
 			path = "hAPI SDK";
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				23304B211665B05400705054 /* MHOAuthManager.m in Sources */,
 				23A2299C16692412003B3688 /* MHObject.m in Sources */,
 				23A2299F166932D5003B3688 /* MHAPIManager.m in Sources */,
+				23304B30166E896A00705054 /* MHHealthData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
