@@ -27,4 +27,14 @@
 }
 
 
++ (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
+{
+    return [NSArray array];
+}
+
++ (MHHealthData*)healthDataWithId:(NSString*)uniqueId
+{
+    return [[MHHealthData alloc] init];
+}
+
 @end

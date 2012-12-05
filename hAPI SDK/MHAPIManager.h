@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define BASE_URL @"http://partner2.medhelp.ws"
+
 @interface MHAPIManager : NSObject
 @property (nonatomic, retain) NSString* accessToken;
 @end

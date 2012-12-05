@@ -9,6 +9,11 @@
 #import "MHObject.h"
 
 @interface MHHealthData : MHObject
+
++ (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
+
++ (MHHealthData*)healthDataWithId:(NSString*)uniqueId;
+
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *relativeId;
 @property (nonatomic, strong) NSDate *timeStamp;
