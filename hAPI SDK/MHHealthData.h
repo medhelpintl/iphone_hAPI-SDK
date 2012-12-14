@@ -9,7 +9,7 @@
 #import "MHObject.h"
 
 @interface MHHealthData : MHObject
-+ (id)initWithFieldName:(NSString*)fieldName forValue:(id)value;
+- (id)initWithFieldName:(NSString*)fieldName forValue:(id)value;
 + (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
 + (MHHealthData*)healthDataWithId:(NSString*)uniqueId;
 

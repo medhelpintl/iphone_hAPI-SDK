@@ -46,7 +46,7 @@
 		23304B8D167946D200705054 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B7C167946D200705054 /* UIImageView+AFNetworking.m */; };
 		23304B8E167946D200705054 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B7C167946D200705054 /* UIImageView+AFNetworking.m */; };
 		23A2299C16692412003B3688 /* MHObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299B16692412003B3688 /* MHObject.m */; };
-		23A2299F166932D5003B3688 /* MHAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299E166932D5003B3688 /* MHAPIManager.m */; };
+		23A2299F166932D5003B3688 /* MHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299E166932D5003B3688 /* MHAPIClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,8 +109,8 @@
 		23A22999166921BC003B3688 /* GlobalConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 		23A2299A16692412003B3688 /* MHObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHObject.h; sourceTree = "<group>"; };
 		23A2299B16692412003B3688 /* MHObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHObject.m; sourceTree = "<group>"; };
-		23A2299D166932D5003B3688 /* MHAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAPIManager.h; sourceTree = "<group>"; };
-		23A2299E166932D5003B3688 /* MHAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAPIManager.m; sourceTree = "<group>"; };
+		23A2299D166932D5003B3688 /* MHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAPIClient.h; sourceTree = "<group>"; };
+		23A2299E166932D5003B3688 /* MHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +187,8 @@
 				23304AF11665AFDA00705054 /* Supporting Files */,
 				23A2299A16692412003B3688 /* MHObject.h */,
 				23A2299B16692412003B3688 /* MHObject.m */,
-				23A2299D166932D5003B3688 /* MHAPIManager.h */,
-				23A2299E166932D5003B3688 /* MHAPIManager.m */,
+				23A2299D166932D5003B3688 /* MHAPIClient.h */,
+				23A2299E166932D5003B3688 /* MHAPIClient.m */,
 				23304B2E166E896A00705054 /* MHHealthData.h */,
 				23304B2F166E896A00705054 /* MHHealthData.m */,
 			);
@@ -368,7 +368,7 @@
 				23304AFB1665AFDA00705054 /* MHAppDelegate.m in Sources */,
 				23304B211665B05400705054 /* MHOAuthManager.m in Sources */,
 				23A2299C16692412003B3688 /* MHObject.m in Sources */,
-				23A2299F166932D5003B3688 /* MHAPIManager.m in Sources */,
+				23A2299F166932D5003B3688 /* MHAPIClient.m in Sources */,
 				23304B30166E896A00705054 /* MHHealthData.m in Sources */,
 				23304B7D167946D200705054 /* AFHTTPClient.m in Sources */,
 				23304B7F167946D200705054 /* AFHTTPRequestOperation.m in Sources */,

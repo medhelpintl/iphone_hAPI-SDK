@@ -26,6 +26,13 @@
     return self;
 }
 
+- (id)initWithFieldName:(NSString*)fieldName forValue:(id)value {
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
 
 + (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
 {

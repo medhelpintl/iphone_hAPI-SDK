@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
 
 #define BASE_URL @"http://partner2.medhelp.ws"
 
-@interface MHAPIManager : NSObject
+@interface MHAPIClient : AFHTTPClient
 @property (nonatomic, retain) NSString* accessToken;
++ (id)sharedInstance;
 @end
