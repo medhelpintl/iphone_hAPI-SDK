@@ -7,7 +7,7 @@
 //
 
 #import "MHObject.h"
-
+#import "MHAPIClient.h"
 @implementation MHObject
 @synthesize uniqueId = uniqueId_;
 @synthesize delegate = delegate_;
@@ -27,6 +27,8 @@
     [errorDetail setValue:@"Failed to save because of something" forKey:NSLocalizedDescriptionKey];
     [errorDetail setValue:@"something" forKey:@"kReceivedData"];
     *error = [NSError errorWithDomain:@"myDomain" code:100 userInfo:errorDetail];
+    
+
     
     if (successful) {
         if ([self.delegate respondsToSelector:@selector(didSave:)]) {

@@ -7,6 +7,7 @@
 //
 
 #import "MHHealthData.h"
+#import "MHAPIClient.h"
 
 @implementation MHHealthData
 @synthesize userId = userId_;
@@ -36,6 +37,13 @@
 
 + (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
 {
+    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:@"2011-01-01", @"start_date", nil];
+    [[MHAPIClient sharedInstance] getPath:[NSString stringWithFormat:@"users/%@/vitals",@"661977"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"reponse %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"Error %@", error);
+    }];
+    
     return [NSArray array];
 }
 
