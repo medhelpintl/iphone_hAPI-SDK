@@ -21,23 +21,35 @@
     return self;
 }
 
-- (BOOL)save:(NSError**)error {
++ (BOOL) saveAll:(NSArray *)user_data
+{
+    NSArray *update_user_data = [NSArray array];
+    NSArray *create_user_data = [NSArray array];
+    
     // Check Create vs. Update
-    [[MHAPIClient sharedAPIClient] update:[NSArray arrayWithObject:self]];
+    [[MHAPIClient sharedAPIClient] update:update_user_data];
+    [[MHAPIClient sharedAPIClient] create:create_user_data];
     
-    BOOL successful = YES;
+    return YES;
+}
+
+- (BOOL)save:(NSError**)error {
     
-    NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-    [errorDetail setValue:@"Failed to save because of something" forKey:NSLocalizedDescriptionKey];
-    [errorDetail setValue:@"something" forKey:@"kReceivedData"];
-    *error = [NSError errorWithDomain:@"myDomain" code:100 userInfo:errorDetail];
+    return [MHObject saveAll:[NSArray arrayWithObject:self]];
     
-    if (successful) {
-        if ([self.delegate respondsToSelector:@selector(didSave:)]) {
-            [self.delegate performSelector:@selector(didSave:) withObject:self];
-        }
-    }
-    return successful;
+//    BOOL successful = YES;
+//    
+//    NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+//    [errorDetail setValue:@"Failed to save because of something" forKey:NSLocalizedDescriptionKey];
+//    [errorDetail setValue:@"something" forKey:@"kReceivedData"];
+//    *error = [NSError errorWithDomain:@"myDomain" code:100 userInfo:errorDetail];
+//    
+//    if (successful) {
+//        if ([self.delegate respondsToSelector:@selector(didSave:)]) {
+//            [self.delegate performSelector:@selector(didSave:) withObject:self];
+//        }
+//    }
+//    return successful;
 }
 - (void)saveInBackground {
     [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){

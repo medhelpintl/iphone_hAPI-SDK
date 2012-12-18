@@ -12,6 +12,8 @@
 
 //Or UserData?
 @interface MHObject : NSObject
++ (BOOL)saveAll:(NSArray*)user_data;
+
 - (BOOL)save:(NSError**)error;
 - (void)saveInBackground;
 - (void)saveInBackgroundWithBlock:(MHBooleanResultBlock)block;
