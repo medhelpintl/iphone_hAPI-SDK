@@ -1,38 +1,47 @@
 //
-//  MHAPIManager.m
+//  MHAPIClient.m
 //  hAPI SDK
 //
-//  Created by Winfred Raguini on 11/30/12.
+//  Created by Charles Fisher on 12/17/12.
 //  Copyright (c) 2012 Medhelp International. All rights reserved.
 //
 
 #import "MHAPIClient.h"
 
-#define MHAPIBaseURLString @"http://hapi-1710-test.apigee.net/v1/"
-
-
 @implementation MHAPIClient
-@synthesize accessToken = _accessToken;
+
+#pragma mark -
+#pragma mark SINGLETON
 
 + (id)sharedInstance {
     static MHAPIClient *__sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        __sharedInstance = [[MHAPIClient alloc] initWithBaseURL:[NSURL URLWithString:MHAPIBaseURLString]];
+        __sharedInstance = [[MHAPIClient alloc] init];
     });
     return __sharedInstance;
 }
 
-- (id)initWithBaseURL:(NSURL *)url {
-    self = [super initWithBaseURL:url];
-    if (self) {
-        //custom settings
-        [self setDefaultHeader:@"Bearer" value:self.accessToken];
-        [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    }
+
+#pragma mark -
+#pragma mark API
+
+- (void) create:(NSArray*) user_data
+{
     
-    return self;
 }
+
+- (void) update:(NSArray*) user_data
+{
+    
+}
+
+- (NSArray*) read:(NSDate*)startDate :(NSDate*)endDate
+{
+    return [NSArray array];
+}
+
+// delete
 
 
 @end

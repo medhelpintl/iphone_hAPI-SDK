@@ -9,12 +9,17 @@
 #import "MHOAuthManager.h"
 
 @interface MHOAuthManager ()
+@property (nonatomic, strong) NSString *authCode;
 - (void)requestAccessToken;
+- (void)setAuthCodeFromRequest:(NSURLRequest*)urlRequest;
 @end
 
 @implementation MHOAuthManager
 @synthesize authCode = authCode_;
 @synthesize accessToken = accessToken_;
+
+#pragma mark -
+#pragma mark INIT
 
 - (id)init
 {
@@ -24,13 +29,13 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark SINGLETON
 
 static MHOAuthManager *sharedManager = nil;
 
 + (MHOAuthManager *)sharedAuthManager
 {
-
-    
     @synchronized([MHOAuthManager class]) {
         if (!sharedManager) {
             sharedManager = [[MHOAuthManager alloc] init];
@@ -38,6 +43,11 @@ static MHOAuthManager *sharedManager = nil;
     }
     
     return sharedManager; 
+}
+
+- (void) login:(NSString *)clientID :(NSString *)appURLScheme
+{
+    //
 }
 
 - (void)setAuthCodeFromRequest:(NSURLRequest*)urlRequest

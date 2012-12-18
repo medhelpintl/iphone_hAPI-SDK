@@ -1,17 +1,22 @@
 //
-//  MHAPIManager.h
+//  MHAPIClient.h
 //  hAPI SDK
 //
-//  Created by Winfred Raguini on 11/30/12.
+//  Created by Charles Fisher on 12/17/12.
 //  Copyright (c) 2012 Medhelp International. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
 
-#define BASE_URL @"http://partner2.medhelp.ws"
+#import "MHHealthData.h"
 
-@interface MHAPIClient : AFHTTPClient
-@property (nonatomic, retain) NSString* accessToken;
-+ (id)sharedInstance;
+@interface MHAPIClient : NSObject
+
++ (MHAPIClient*) sharedAPIClient;
+
+- (void) create:(NSArray*)user_data;
+- (void) update:(NSArray*)user_data;
+- (NSArray*) read:(NSDate*)startDate :(NSDate*)endDate;
+//- (void) delete:(NSArray*)user_data;
+
 @end

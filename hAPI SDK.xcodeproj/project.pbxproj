@@ -46,7 +46,8 @@
 		23304B8D167946D200705054 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B7C167946D200705054 /* UIImageView+AFNetworking.m */; };
 		23304B8E167946D200705054 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B7C167946D200705054 /* UIImageView+AFNetworking.m */; };
 		23A2299C16692412003B3688 /* MHObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299B16692412003B3688 /* MHObject.m */; };
-		23A2299F166932D5003B3688 /* MHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299E166932D5003B3688 /* MHAPIClient.m */; };
+		23A2299F166932D5003B3688 /* MHHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299E166932D5003B3688 /* MHHTTPClient.m */; };
+		722D7C1E167FF64800FB598E /* MHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 722D7C1D167FF64800FB598E /* MHAPIClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,8 +110,10 @@
 		23A22999166921BC003B3688 /* GlobalConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 		23A2299A16692412003B3688 /* MHObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHObject.h; sourceTree = "<group>"; };
 		23A2299B16692412003B3688 /* MHObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHObject.m; sourceTree = "<group>"; };
-		23A2299D166932D5003B3688 /* MHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAPIClient.h; sourceTree = "<group>"; };
-		23A2299E166932D5003B3688 /* MHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAPIClient.m; sourceTree = "<group>"; };
+		23A2299D166932D5003B3688 /* MHHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHHTTPClient.h; sourceTree = "<group>"; };
+		23A2299E166932D5003B3688 /* MHHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHHTTPClient.m; sourceTree = "<group>"; };
+		722D7C1C167FF64800FB598E /* MHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAPIClient.h; sourceTree = "<group>"; };
+		722D7C1D167FF64800FB598E /* MHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,18 +182,15 @@
 		23304AF01665AFDA00705054 /* hAPI SDK */ = {
 			isa = PBXGroup;
 			children = (
-				23304B1F1665B05400705054 /* MHOAuthManager.h */,
-				23304B201665B05400705054 /* MHOAuthManager.m */,
+				23A22999166921BC003B3688 /* GlobalConstants.h */,
+				722D7C22167FF8AD00FB598E /* API */,
+				722D7C21167FF8A400FB598E /* Login */,
+				722D7C20167FF89500FB598E /* Data */,
 				23304AF91665AFDA00705054 /* MHAppDelegate.h */,
 				23304AFA1665AFDA00705054 /* MHAppDelegate.m */,
-				23A22999166921BC003B3688 /* GlobalConstants.h */,
+				23A2299D166932D5003B3688 /* MHHTTPClient.h */,
+				23A2299E166932D5003B3688 /* MHHTTPClient.m */,
 				23304AF11665AFDA00705054 /* Supporting Files */,
-				23A2299A16692412003B3688 /* MHObject.h */,
-				23A2299B16692412003B3688 /* MHObject.m */,
-				23A2299D166932D5003B3688 /* MHAPIClient.h */,
-				23A2299E166932D5003B3688 /* MHAPIClient.m */,
-				23304B2E166E896A00705054 /* MHHealthData.h */,
-				23304B2F166E896A00705054 /* MHHealthData.m */,
 			);
 			path = "hAPI SDK";
 			sourceTree = "<group>";
@@ -252,6 +252,35 @@
 				23304B7C167946D200705054 /* UIImageView+AFNetworking.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		722D7C20167FF89500FB598E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				23A2299A16692412003B3688 /* MHObject.h */,
+				23A2299B16692412003B3688 /* MHObject.m */,
+				23304B2E166E896A00705054 /* MHHealthData.h */,
+				23304B2F166E896A00705054 /* MHHealthData.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		722D7C21167FF8A400FB598E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				23304B1F1665B05400705054 /* MHOAuthManager.h */,
+				23304B201665B05400705054 /* MHOAuthManager.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		722D7C22167FF8AD00FB598E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				722D7C1C167FF64800FB598E /* MHAPIClient.h */,
+				722D7C1D167FF64800FB598E /* MHAPIClient.m */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,7 +397,7 @@
 				23304AFB1665AFDA00705054 /* MHAppDelegate.m in Sources */,
 				23304B211665B05400705054 /* MHOAuthManager.m in Sources */,
 				23A2299C16692412003B3688 /* MHObject.m in Sources */,
-				23A2299F166932D5003B3688 /* MHAPIClient.m in Sources */,
+				23A2299F166932D5003B3688 /* MHHTTPClient.m in Sources */,
 				23304B30166E896A00705054 /* MHHealthData.m in Sources */,
 				23304B7D167946D200705054 /* AFHTTPClient.m in Sources */,
 				23304B7F167946D200705054 /* AFHTTPRequestOperation.m in Sources */,
@@ -379,6 +408,7 @@
 				23304B89167946D200705054 /* AFURLConnectionOperation.m in Sources */,
 				23304B8B167946D200705054 /* AFXMLRequestOperation.m in Sources */,
 				23304B8D167946D200705054 /* UIImageView+AFNetworking.m in Sources */,
+				722D7C1E167FF64800FB598E /* MHAPIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

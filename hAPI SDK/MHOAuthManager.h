@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface MHOAuthManager : NSObject
-+ (MHOAuthManager *)sharedAuthManager;
-- (void)setAuthCodeFromRequest:(NSURLRequest*)urlRequest;
-
-@property (nonatomic, strong) NSString *authCode;
 @property (nonatomic, strong) NSString *accessToken;
+
++ (MHOAuthManager *)sharedAuthManager;
+
+// Take in a completion block
+- (void)login:(NSString*)clientID :(NSString*)appURLScheme;
+
 @end

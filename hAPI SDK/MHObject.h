@@ -13,10 +13,10 @@
 //Or UserData?
 @interface MHObject : NSObject
 - (BOOL)save:(NSError**)error;
-- (BOOL)saveInBackground:(NSError**)error;
+- (void)saveInBackground;
 - (void)saveInBackgroundWithBlock:(MHBooleanResultBlock)block;
-- (BOOL)destroy;
-- (BOOL)destroyInBackground;
+- (BOOL)destroy:(NSError**)error;
+- (void)destroyInBackground;
 - (void)destroyInBackgroundWithBlock:(MHBooleanResultBlock)block;
 //- ( void )myMethodTakingPredicate: ( BOOL ( ^ )( int ) )predicate;
 @property (nonatomic, strong) NSString *uniqueId;
