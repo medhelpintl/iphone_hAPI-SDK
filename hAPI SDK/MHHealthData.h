@@ -10,15 +10,18 @@
 
 @interface MHHealthData : MHObject
 - (id)initWithFieldName:(NSString*)fieldName forValue:(id)value;
-+ (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
 + (MHHealthData*)healthDataWithId:(NSString*)uniqueId;
 
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *relativeId;
-@property (nonatomic, strong) NSDate *timeStamp;
-@property (nonatomic, strong) NSString *fieldName;
-@property (nonatomic, strong) NSString *category;
-@property (nonatomic, strong) NSString *sourceType;
-@property (nonatomic, strong) NSString *sourceId;
+@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *time;
+@property (nonatomic, strong) NSString *field_name;
 @property (nonatomic, weak) id value;
+@property (nonatomic, readonly) NSDate *updated_at;
+@property (nonatomic, readonly) NSDate *created_at;
+@property (nonatomic, readonly) BOOL immutable;
+
++ (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
+
 @end

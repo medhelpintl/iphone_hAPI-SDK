@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MHObjectDelegate;
-
-//Or UserData?
 @interface MHObject : NSObject
+// This goes in another object...
 + (BOOL)saveAll:(NSArray*)user_data;
 
 - (BOOL)save:(NSError**)error;
@@ -20,51 +18,14 @@
 - (BOOL)destroy:(NSError**)error;
 - (void)destroyInBackground;
 - (void)destroyInBackgroundWithBlock:(MHBooleanResultBlock)block;
-//- ( void )myMethodTakingPredicate: ( BOOL ( ^ )( int ) )predicate;
+
+
 @property (nonatomic, strong) NSString *uniqueId;
-@property (nonatomic, weak) id <MHObjectDelegate> delegate;
-@end
+@property (nonatomic, strong) NSString *clientId;
+@property (nonatomic, readonly) BOOL deleted;
 
-////////////////////////////////////////////////////////////////////////////////
-// These methods can be used as callbacks for -save and -saveInBackground
-/*
- *Your application should implement this delegate when saving or destroying data without a block
- */
-@protocol MHObjectDelegate <NSObject>
-
-@optional
-
-/**
- * Called just before the health data is sent to the server.
- */
-- (void)willSave:(MHObject *)healthData;
-
-/**
- * Called after the healthData is saved.
- */
-- (void)didSave:(MHObject *)healthData;
-
-/**
- * Called if the 
- */
-- (void)saveDidFail:(MHObject*)healthData withError:(NSError*)error;
-
-
-/**
- * Called just before the health data is sent to the server.
- */
-- (void)willDestroy:(MHObject *)healthData;
-
-/**
- * Called after the healthData is saved.
- */
-- (void)didDestroy:(MHObject *)healthData;
-
-/**
- * Called if the
- */
-- (void)destroyDidFail:(MHObject*)healthData withError:(NSError*)error;
-
-
+// HELPER
+@property (nonatomic, readonly) NSMutableDictionary *data;
+//- (id) valueForKey:(NSString *)key;
 
 @end

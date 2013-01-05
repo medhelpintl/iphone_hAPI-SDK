@@ -9,18 +9,59 @@
 #import "MHObject.h"
 #import "MHAPIClient.h"
 
+#define kUniqueID @"id"
+#define kClientID @"external_id"
+#define kDeleted @"deleted"
+
+@interface MHObject()
+@property (nonatomic, strong) NSMutableDictionary *data;
+@end
+
 @implementation MHObject
-@synthesize uniqueId = uniqueId_;
-@synthesize delegate = delegate_;
+@synthesize data;
+@dynamic uniqueId;
+@dynamic clientId;
+@dynamic deleted;
+
+#pragma mark -
+#pragma mark PROPERTIES
+
+- (NSString*) uniqueId
+{
+    return [self valueForKey:kUniqueID];
+}
+
+- (NSString*) clientId
+{
+    return [self valueForKey:kClientID];
+}
+
+- (BOOL) deleted
+{
+    NSNumber *deleted = [self valueForKey:kDeleted];
+    return [deleted boolValue];
+}
+
+- (id) valueForKey:(NSString *)key
+{
+    return [self.data objectForKey:key];
+}
+
+#pragma mark -
+#pragma mark INIT
 
 - (id)init
 {
     if (self = [super init]) {
-        
+        self.data = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
+#pragma mark -
+#pragma mark SAVE
+
+// to be moved....
 + (BOOL) saveAll:(NSArray *)user_data
 {
     NSArray *update_user_data = [NSArray array];
@@ -34,22 +75,15 @@
 }
 
 - (BOOL)save:(NSError**)error {
+
+    BOOL success = YES;
+    if (self.uniqueId) {
+        [[MHAPIClient sharedAPIClient] update:[NSArray arrayWithObject:self]];
+    } else {
+        [[MHAPIClient sharedAPIClient] create:[NSArray arrayWithObject:self]];
+    }
     
-    return [MHObject saveAll:[NSArray arrayWithObject:self]];
-    
-//    BOOL successful = YES;
-//    
-//    NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-//    [errorDetail setValue:@"Failed to save because of something" forKey:NSLocalizedDescriptionKey];
-//    [errorDetail setValue:@"something" forKey:@"kReceivedData"];
-//    *error = [NSError errorWithDomain:@"myDomain" code:100 userInfo:errorDetail];
-//    
-//    if (successful) {
-//        if ([self.delegate respondsToSelector:@selector(didSave:)]) {
-//            [self.delegate performSelector:@selector(didSave:) withObject:self];
-//        }
-//    }
-//    return successful;
+    return success;
 }
 - (void)saveInBackground {
     [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
@@ -67,6 +101,13 @@
 
 - (BOOL)destroy:(NSError *__autoreleasing *)error {
     BOOL successful = YES;
+    
+    [[MHAPIClient sharedAPIClient] destroy:[NSArray arrayWithObject:self]];
+    
+    if (successful) {
+        [self.data setValue:[NSNumber numberWithBool:YES] forKey:kDeleted];
+    }
+    
     return successful;
 }
 

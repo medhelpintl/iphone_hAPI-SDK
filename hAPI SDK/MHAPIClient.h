@@ -17,6 +17,6 @@
 - (void) create:(NSArray*)user_data;
 - (void) update:(NSArray*)user_data;
 - (NSArray*) read:(NSDate*)startDate :(NSDate*)endDate;
-//- (void) delete:(NSArray*)user_data;
+- (void) destroy:(NSArray*)user_data;
 
 @end

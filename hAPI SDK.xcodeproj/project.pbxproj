@@ -12,7 +12,6 @@
 		23304AEF1665AFDA00705054 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23304AEE1665AFDA00705054 /* CoreGraphics.framework */; };
 		23304AF51665AFDA00705054 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23304AF31665AFDA00705054 /* InfoPlist.strings */; };
 		23304AF71665AFDA00705054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304AF61665AFDA00705054 /* main.m */; };
-		23304AFB1665AFDA00705054 /* MHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304AFA1665AFDA00705054 /* MHAppDelegate.m */; };
 		23304AFD1665AFDA00705054 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23304AFC1665AFDA00705054 /* Default.png */; };
 		23304AFF1665AFDA00705054 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23304AFE1665AFDA00705054 /* Default@2x.png */; };
 		23304B011665AFDA00705054 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23304B001665AFDA00705054 /* Default-568h@2x.png */; };
@@ -48,6 +47,8 @@
 		23A2299C16692412003B3688 /* MHObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299B16692412003B3688 /* MHObject.m */; };
 		23A2299F166932D5003B3688 /* MHHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299E166932D5003B3688 /* MHHTTPClient.m */; };
 		722D7C1E167FF64800FB598E /* MHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 722D7C1D167FF64800FB598E /* MHAPIClient.m */; };
+		7268BEE81697D1AF0070FAA1 /* MedHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEE71697D1AF0070FAA1 /* MedHelp.m */; };
+		7268BEEC1697D2220070FAA1 /* MHLoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEEB1697D2220070FAA1 /* MHLoginClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +70,6 @@
 		23304AF41665AFDA00705054 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23304AF61665AFDA00705054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		23304AF81665AFDA00705054 /* hAPI SDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hAPI SDK-Prefix.pch"; sourceTree = "<group>"; };
-		23304AF91665AFDA00705054 /* MHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHAppDelegate.h; sourceTree = "<group>"; };
-		23304AFA1665AFDA00705054 /* MHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHAppDelegate.m; sourceTree = "<group>"; };
 		23304AFC1665AFDA00705054 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		23304AFE1665AFDA00705054 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		23304B001665AFDA00705054 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -114,6 +113,10 @@
 		23A2299E166932D5003B3688 /* MHHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHHTTPClient.m; sourceTree = "<group>"; };
 		722D7C1C167FF64800FB598E /* MHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAPIClient.h; sourceTree = "<group>"; };
 		722D7C1D167FF64800FB598E /* MHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAPIClient.m; sourceTree = "<group>"; };
+		7268BEE61697D1AF0070FAA1 /* MedHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedHelp.h; sourceTree = "<group>"; };
+		7268BEE71697D1AF0070FAA1 /* MedHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedHelp.m; sourceTree = "<group>"; };
+		7268BEEA1697D2220070FAA1 /* MHLoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLoginClient.h; sourceTree = "<group>"; };
+		7268BEEB1697D2220070FAA1 /* MHLoginClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHLoginClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,11 +189,11 @@
 				722D7C22167FF8AD00FB598E /* API */,
 				722D7C21167FF8A400FB598E /* Login */,
 				722D7C20167FF89500FB598E /* Data */,
-				23304AF91665AFDA00705054 /* MHAppDelegate.h */,
-				23304AFA1665AFDA00705054 /* MHAppDelegate.m */,
 				23A2299D166932D5003B3688 /* MHHTTPClient.h */,
 				23A2299E166932D5003B3688 /* MHHTTPClient.m */,
 				23304AF11665AFDA00705054 /* Supporting Files */,
+				7268BEE61697D1AF0070FAA1 /* MedHelp.h */,
+				7268BEE71697D1AF0070FAA1 /* MedHelp.m */,
 			);
 			path = "hAPI SDK";
 			sourceTree = "<group>";
@@ -270,6 +273,8 @@
 			children = (
 				23304B1F1665B05400705054 /* MHOAuthManager.h */,
 				23304B201665B05400705054 /* MHOAuthManager.m */,
+				7268BEEA1697D2220070FAA1 /* MHLoginClient.h */,
+				7268BEEB1697D2220070FAA1 /* MHLoginClient.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -394,7 +399,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				23304AF71665AFDA00705054 /* main.m in Sources */,
-				23304AFB1665AFDA00705054 /* MHAppDelegate.m in Sources */,
 				23304B211665B05400705054 /* MHOAuthManager.m in Sources */,
 				23A2299C16692412003B3688 /* MHObject.m in Sources */,
 				23A2299F166932D5003B3688 /* MHHTTPClient.m in Sources */,
@@ -409,6 +413,8 @@
 				23304B8B167946D200705054 /* AFXMLRequestOperation.m in Sources */,
 				23304B8D167946D200705054 /* UIImageView+AFNetworking.m in Sources */,
 				722D7C1E167FF64800FB598E /* MHAPIClient.m in Sources */,
+				7268BEE81697D1AF0070FAA1 /* MedHelp.m in Sources */,
+				7268BEEC1697D2220070FAA1 /* MHLoginClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
