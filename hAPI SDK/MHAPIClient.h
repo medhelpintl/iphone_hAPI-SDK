@@ -14,9 +14,10 @@
 
 + (MHAPIClient*) sharedAPIClient;
 
-- (void) create:(NSArray*)user_data;
-- (void) update:(NSArray*)user_data;
-- (NSArray*) read:(NSDate*)startDate :(NSDate*)endDate;
-- (void) destroy:(NSArray*)user_data;
+- (void) create:(NSArray*)user_data :(NSError**)error;
+- (void) update:(NSArray*)user_data :(NSError**)error;
+- (NSArray*) read:(NSArray*)field_names :(NSDate*)startDate :(NSDate*)endDate :(NSDate*)updatedDate :(NSError**)error;
+- (MHHealthData*) read:(NSString*)identifier :(NSError**)error;
+- (void) destroy:(NSArray*)user_data :(NSError**)error;
 
 @end

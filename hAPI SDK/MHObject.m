@@ -58,29 +58,43 @@
     return self;
 }
 
+- (id) initWithDictionary:(NSDictionary *)data
+{
+    if (self = [super init]) {
+        self.data = [NSMutableDictionary dictionaryWithDictionary:data];
+    }
+    return self;
+}
+
+- (id) initWithID:(NSString *)clientId
+{
+    return [self initWithDictionary:[NSDictionary dictionaryWithObject:clientId forKey:kClientID]];
+}
+
 #pragma mark -
 #pragma mark SAVE
 
 // to be moved....
 + (BOOL) saveAll:(NSArray *)user_data
 {
+    NSError *error = nil;
     NSArray *update_user_data = [NSArray array];
     NSArray *create_user_data = [NSArray array];
     
     // Check Create vs. Update
-    [[MHAPIClient sharedAPIClient] update:update_user_data];
-    [[MHAPIClient sharedAPIClient] create:create_user_data];
+    [[MHAPIClient sharedAPIClient] update:update_user_data :&error];
+    [[MHAPIClient sharedAPIClient] create:create_user_data :&error];
     
-    return YES;
+    return error == nil;
 }
 
 - (BOOL)save:(NSError**)error {
 
     BOOL success = YES;
     if (self.uniqueId) {
-        [[MHAPIClient sharedAPIClient] update:[NSArray arrayWithObject:self]];
+        [[MHAPIClient sharedAPIClient] update:[NSArray arrayWithObject:self] :error];
     } else {
-        [[MHAPIClient sharedAPIClient] create:[NSArray arrayWithObject:self]];
+        [[MHAPIClient sharedAPIClient] create:[NSArray arrayWithObject:self] :error];
     }
     
     return success;
@@ -102,7 +116,7 @@
 - (BOOL)destroy:(NSError *__autoreleasing *)error {
     BOOL successful = YES;
     
-    [[MHAPIClient sharedAPIClient] destroy:[NSArray arrayWithObject:self]];
+    [[MHAPIClient sharedAPIClient] destroy:[NSArray arrayWithObject:self] :error];
     
     if (successful) {
         [self.data setValue:[NSNumber numberWithBool:YES] forKey:kDeleted];

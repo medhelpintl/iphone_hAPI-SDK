@@ -10,4 +10,12 @@
 
 @interface MHLoginClient : NSObject
 
+@property (nonatomic, strong) NSString* accessToken;
+
++ (MHLoginClient*) sharedLoginClient;
+
+- (void) anonCreate:(MHErrorBlock)completionBlock;
+- (void) login:(MHErrorBlock)completionBlock;
+- (void) logout:(MHErrorBlock)completionBlock;
+
 @end

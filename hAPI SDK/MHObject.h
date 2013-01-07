@@ -26,6 +26,8 @@
 
 // HELPER
 @property (nonatomic, readonly) NSMutableDictionary *data;
-//- (id) valueForKey:(NSString *)key;
+// INIT
+- (id) initWithDictionary:(NSDictionary*)data;
+- (id) initWithID:(NSString*)clientId;
 
 @end

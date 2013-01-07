@@ -49,6 +49,8 @@
 		722D7C1E167FF64800FB598E /* MHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 722D7C1D167FF64800FB598E /* MHAPIClient.m */; };
 		7268BEE81697D1AF0070FAA1 /* MedHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEE71697D1AF0070FAA1 /* MedHelp.m */; };
 		7268BEEC1697D2220070FAA1 /* MHLoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEEB1697D2220070FAA1 /* MHLoginClient.m */; };
+		7268BEEF169B4BC40070FAA1 /* MHQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEEE169B4BC40070FAA1 /* MHQuery.m */; };
+		7268BEF2169B564B0070FAA1 /* MHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEF1169B564B0070FAA1 /* MHRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,10 @@
 		7268BEE71697D1AF0070FAA1 /* MedHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedHelp.m; sourceTree = "<group>"; };
 		7268BEEA1697D2220070FAA1 /* MHLoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLoginClient.h; sourceTree = "<group>"; };
 		7268BEEB1697D2220070FAA1 /* MHLoginClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHLoginClient.m; sourceTree = "<group>"; };
+		7268BEED169B4BC40070FAA1 /* MHQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHQuery.h; sourceTree = "<group>"; };
+		7268BEEE169B4BC40070FAA1 /* MHQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHQuery.m; sourceTree = "<group>"; };
+		7268BEF0169B564B0070FAA1 /* MHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHRequest.h; sourceTree = "<group>"; };
+		7268BEF1169B564B0070FAA1 /* MHRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,8 @@
 		23304AF01665AFDA00705054 /* hAPI SDK */ = {
 			isa = PBXGroup;
 			children = (
+				7268BEE61697D1AF0070FAA1 /* MedHelp.h */,
+				7268BEE71697D1AF0070FAA1 /* MedHelp.m */,
 				23A22999166921BC003B3688 /* GlobalConstants.h */,
 				722D7C22167FF8AD00FB598E /* API */,
 				722D7C21167FF8A400FB598E /* Login */,
@@ -192,8 +200,6 @@
 				23A2299D166932D5003B3688 /* MHHTTPClient.h */,
 				23A2299E166932D5003B3688 /* MHHTTPClient.m */,
 				23304AF11665AFDA00705054 /* Supporting Files */,
-				7268BEE61697D1AF0070FAA1 /* MedHelp.h */,
-				7268BEE71697D1AF0070FAA1 /* MedHelp.m */,
 			);
 			path = "hAPI SDK";
 			sourceTree = "<group>";
@@ -264,6 +270,8 @@
 				23A2299B16692412003B3688 /* MHObject.m */,
 				23304B2E166E896A00705054 /* MHHealthData.h */,
 				23304B2F166E896A00705054 /* MHHealthData.m */,
+				7268BEED169B4BC40070FAA1 /* MHQuery.h */,
+				7268BEEE169B4BC40070FAA1 /* MHQuery.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -284,6 +292,8 @@
 			children = (
 				722D7C1C167FF64800FB598E /* MHAPIClient.h */,
 				722D7C1D167FF64800FB598E /* MHAPIClient.m */,
+				7268BEF0169B564B0070FAA1 /* MHRequest.h */,
+				7268BEF1169B564B0070FAA1 /* MHRequest.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -415,6 +425,8 @@
 				722D7C1E167FF64800FB598E /* MHAPIClient.m in Sources */,
 				7268BEE81697D1AF0070FAA1 /* MedHelp.m in Sources */,
 				7268BEEC1697D2220070FAA1 /* MHLoginClient.m in Sources */,
+				7268BEEF169B4BC40070FAA1 /* MHQuery.m in Sources */,
+				7268BEF2169B564B0070FAA1 /* MHRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

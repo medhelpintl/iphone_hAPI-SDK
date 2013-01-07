@@ -121,29 +121,16 @@
 
 - (id)initWithFieldName:(NSString*)fieldName forValue:(id)value {
     if (self = [super init]) {
-        
+        self.field_name = fieldName;
+        self.value = value;
     }
     return self;
 }
 
-
-+ (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
-{
-    return [[MHAPIClient sharedAPIClient] read:fromDate :toDate];
-    
-//    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:@"2011-01-01", @"start_date", nil];
-//    [[MHAPIClient sharedInstance] getPath:[NSString stringWithFormat:@"users/%@/vitals",@"661977"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"reponse %@", responseObject);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
-//        NSLog(@"Error %@", error);
-//    }];
-//    
-//    return [NSArray array];
-}
-
 + (MHHealthData*)healthDataWithId:(NSString*)uniqueId
 {
-    return [[MHHealthData alloc] init];
+#warning Query?
+    return [[MHHealthData alloc] initWithID:uniqueId];
 }
 
 @end
