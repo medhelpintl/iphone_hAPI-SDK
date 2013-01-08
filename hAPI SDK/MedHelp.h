@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GlobalConstants.h"
+
 @interface MedHelp : NSObject
 + (void) startWithAppID:(NSString*) appID;
 + (NSString*) appID;

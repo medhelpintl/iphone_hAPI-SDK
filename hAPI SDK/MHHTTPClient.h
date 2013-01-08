@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-#define BASE_URL @"http://partner2.medhelp.ws"
-
 @interface MHHTTPClient : AFHTTPClient
 + (id)sharedInstance;
 @end

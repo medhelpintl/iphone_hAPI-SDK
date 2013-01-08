@@ -22,6 +22,10 @@
 @property (nonatomic, readonly) NSDate *created_at;
 @property (nonatomic, readonly) BOOL immutable;
 
+// Helper
+- (void) setDateWithNSDate:(NSDate*)date;
+- (void) setTimeWithNSDate:(NSDate*)time;
+
 + (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
 
 @end

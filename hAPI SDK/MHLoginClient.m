@@ -11,6 +11,20 @@
 @implementation MHLoginClient
 
 #pragma mark -
+#pragma mark PROPERTIES
+
+- (NSString*) userID
+{
+#warning HACK
+    return @"12345";
+}
+
+- (NSString*) accessToken
+{
+    return @"BLAH";
+}
+
+#pragma mark -
 #pragma mark SINGLETON
 
 + (MHLoginClient*) sharedLoginClient {
@@ -32,6 +46,8 @@
 
 - (void) login:(MHErrorBlock)completionBlock
 {
+    self.accessToken = @"12345";
+    
     completionBlock(nil);
 }
 

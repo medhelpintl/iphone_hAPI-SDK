@@ -8,9 +8,11 @@
 
 #import "MHHTTPClient.h"
 
+#import "MedHelp.h"
 #import "MHOAuthManager.h"
 
-#define MHAPIBaseURLString @"http://hapi-1710-test.apigee.net/v1/"
+//#define MHAPIBaseURLString @"http://hapi-1710-test.apigee.net/v1/"
+#define MHAPIBaseURLString @"http://hapi.partner2.medhelp.ws"
 
 @interface MHHTTPClient()
 @property (nonatomic, strong) NSString *accessToken;
@@ -28,7 +30,7 @@
 
 - (void) setAccessToken:(NSString *)accessToken
 {
-    // Nope
+    // Not Yet
 }
 
 #pragma mark -
@@ -42,6 +44,14 @@
         
         // Monitor Access Token on Auth Manager
         [[MHOAuthManager sharedAuthManager] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueChangeReplacement context:NULL];
+        
+        [self.operationQueue setMaxConcurrentOperationCount:1];
+        
+        [self setDefaultHeader:@"appID" value:[MedHelp appID]];
+        
+#ifdef _SYSTEMCONFIGURATION_H
+        [self startMonitoringNetworkReachability];
+#endif
     }
     
     return self;

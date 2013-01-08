@@ -11,10 +11,6 @@
 		23304AED1665AFDA00705054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23304AEC1665AFDA00705054 /* Foundation.framework */; };
 		23304AEF1665AFDA00705054 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23304AEE1665AFDA00705054 /* CoreGraphics.framework */; };
 		23304AF51665AFDA00705054 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23304AF31665AFDA00705054 /* InfoPlist.strings */; };
-		23304AF71665AFDA00705054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304AF61665AFDA00705054 /* main.m */; };
-		23304AFD1665AFDA00705054 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 23304AFC1665AFDA00705054 /* Default.png */; };
-		23304AFF1665AFDA00705054 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23304AFE1665AFDA00705054 /* Default@2x.png */; };
-		23304B011665AFDA00705054 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23304B001665AFDA00705054 /* Default-568h@2x.png */; };
 		23304B091665AFDB00705054 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23304B081665AFDB00705054 /* SenTestingKit.framework */; };
 		23304B0A1665AFDB00705054 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23304AEA1665AFDA00705054 /* UIKit.framework */; };
 		23304B0B1665AFDB00705054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23304AEC1665AFDA00705054 /* Foundation.framework */; };
@@ -51,6 +47,8 @@
 		7268BEEC1697D2220070FAA1 /* MHLoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEEB1697D2220070FAA1 /* MHLoginClient.m */; };
 		7268BEEF169B4BC40070FAA1 /* MHQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEEE169B4BC40070FAA1 /* MHQuery.m */; };
 		7268BEF2169B564B0070FAA1 /* MHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEF1169B564B0070FAA1 /* MHRequest.m */; };
+		7268BEF6169B63410070FAA1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEF5169B63410070FAA1 /* Reachability.m */; };
+		7268BF4A169C9FD10070FAA1 /* MHError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF49169C9FD10070FAA1 /* MHError.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,17 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		23304AE61665AFDA00705054 /* hAPI SDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hAPI SDK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23304AE61665AFDA00705054 /* libhAPI SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libhAPI SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23304AEA1665AFDA00705054 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		23304AEC1665AFDA00705054 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23304AEE1665AFDA00705054 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		23304AF21665AFDA00705054 /* hAPI SDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hAPI SDK-Info.plist"; sourceTree = "<group>"; };
 		23304AF41665AFDA00705054 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		23304AF61665AFDA00705054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		23304AF81665AFDA00705054 /* hAPI SDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "hAPI SDK-Prefix.pch"; sourceTree = "<group>"; };
-		23304AFC1665AFDA00705054 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		23304AFE1665AFDA00705054 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		23304B001665AFDA00705054 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		23304B071665AFDB00705054 /* hAPI SDKTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hAPI SDKTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23304B081665AFDB00705054 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		23304B101665AFDB00705054 /* hAPI SDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "hAPI SDKTests-Info.plist"; sourceTree = "<group>"; };
@@ -123,6 +117,10 @@
 		7268BEEE169B4BC40070FAA1 /* MHQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHQuery.m; sourceTree = "<group>"; };
 		7268BEF0169B564B0070FAA1 /* MHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHRequest.h; sourceTree = "<group>"; };
 		7268BEF1169B564B0070FAA1 /* MHRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHRequest.m; sourceTree = "<group>"; };
+		7268BEF4169B63410070FAA1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		7268BEF5169B63410070FAA1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		7268BF48169C9FD10070FAA1 /* MHError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHError.h; sourceTree = "<group>"; };
+		7268BF49169C9FD10070FAA1 /* MHError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHError.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +128,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23304B5B166FE46A00705054 /* SystemConfiguration.framework in Frameworks */,
 				23304B59166FE44000705054 /* libz.dylib in Frameworks */,
+				23304B5B166FE46A00705054 /* SystemConfiguration.framework in Frameworks */,
 				23304B57166FE42900705054 /* MobileCoreServices.framework in Frameworks */,
 				23304B55166FE41E00705054 /* CFNetwork.framework in Frameworks */,
 				23304AEB1665AFDA00705054 /* UIKit.framework in Frameworks */,
@@ -156,6 +154,7 @@
 		23304ADB1665AFDA00705054 = {
 			isa = PBXGroup;
 			children = (
+				7268BEF3169B63410070FAA1 /* Reachability */,
 				23304B69167946D200705054 /* AFNetworking */,
 				23304AF01665AFDA00705054 /* hAPI SDK */,
 				23304B0E1665AFDB00705054 /* hAPI SDKTests */,
@@ -167,7 +166,7 @@
 		23304AE71665AFDA00705054 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23304AE61665AFDA00705054 /* hAPI SDK.app */,
+				23304AE61665AFDA00705054 /* libhAPI SDK.a */,
 				23304B071665AFDB00705054 /* hAPI SDKTests.octest */,
 			);
 			name = Products;
@@ -197,8 +196,7 @@
 				722D7C22167FF8AD00FB598E /* API */,
 				722D7C21167FF8A400FB598E /* Login */,
 				722D7C20167FF89500FB598E /* Data */,
-				23A2299D166932D5003B3688 /* MHHTTPClient.h */,
-				23A2299E166932D5003B3688 /* MHHTTPClient.m */,
+				7268BF46169C9FBE0070FAA1 /* Error */,
 				23304AF11665AFDA00705054 /* Supporting Files */,
 			);
 			path = "hAPI SDK";
@@ -209,11 +207,7 @@
 			children = (
 				23304AF21665AFDA00705054 /* hAPI SDK-Info.plist */,
 				23304AF31665AFDA00705054 /* InfoPlist.strings */,
-				23304AF61665AFDA00705054 /* main.m */,
 				23304AF81665AFDA00705054 /* hAPI SDK-Prefix.pch */,
-				23304AFC1665AFDA00705054 /* Default.png */,
-				23304AFE1665AFDA00705054 /* Default@2x.png */,
-				23304B001665AFDA00705054 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -294,8 +288,28 @@
 				722D7C1D167FF64800FB598E /* MHAPIClient.m */,
 				7268BEF0169B564B0070FAA1 /* MHRequest.h */,
 				7268BEF1169B564B0070FAA1 /* MHRequest.m */,
+				23A2299D166932D5003B3688 /* MHHTTPClient.h */,
+				23A2299E166932D5003B3688 /* MHHTTPClient.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		7268BEF3169B63410070FAA1 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				7268BEF4169B63410070FAA1 /* Reachability.h */,
+				7268BEF5169B63410070FAA1 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		7268BF46169C9FBE0070FAA1 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				7268BF48169C9FD10070FAA1 /* MHError.h */,
+				7268BF49169C9FD10070FAA1 /* MHError.m */,
+			);
+			name = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,8 +329,8 @@
 			);
 			name = "hAPI SDK";
 			productName = "hAPI SDK";
-			productReference = 23304AE61665AFDA00705054 /* hAPI SDK.app */;
-			productType = "com.apple.product-type.application";
+			productReference = 23304AE61665AFDA00705054 /* libhAPI SDK.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		23304B061665AFDB00705054 /* hAPI SDKTests */ = {
 			isa = PBXNativeTarget;
@@ -371,9 +385,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				23304AF51665AFDA00705054 /* InfoPlist.strings in Resources */,
-				23304AFD1665AFDA00705054 /* Default.png in Resources */,
-				23304AFF1665AFDA00705054 /* Default@2x.png in Resources */,
-				23304B011665AFDA00705054 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +419,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23304AF71665AFDA00705054 /* main.m in Sources */,
 				23304B211665B05400705054 /* MHOAuthManager.m in Sources */,
 				23A2299C16692412003B3688 /* MHObject.m in Sources */,
 				23A2299F166932D5003B3688 /* MHHTTPClient.m in Sources */,
@@ -427,6 +437,8 @@
 				7268BEEC1697D2220070FAA1 /* MHLoginClient.m in Sources */,
 				7268BEEF169B4BC40070FAA1 /* MHQuery.m in Sources */,
 				7268BEF2169B564B0070FAA1 /* MHRequest.m in Sources */,
+				7268BEF6169B63410070FAA1 /* Reachability.m in Sources */,
+				7268BF4A169C9FD10070FAA1 /* MHError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -522,6 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACH_O_TYPE = staticlib;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -536,7 +550,7 @@
 				GCC_PREFIX_HEADER = "hAPI SDK/hAPI SDK-Prefix.pch";
 				INFOPLIST_FILE = "hAPI SDK/hAPI SDK-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				WRAPPER_EXTENSION = a;
 			};
 			name = Debug;
 		};
@@ -547,7 +561,7 @@
 				GCC_PREFIX_HEADER = "hAPI SDK/hAPI SDK-Prefix.pch";
 				INFOPLIST_FILE = "hAPI SDK/hAPI SDK-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				WRAPPER_EXTENSION = a;
 			};
 			name = Release;
 		};

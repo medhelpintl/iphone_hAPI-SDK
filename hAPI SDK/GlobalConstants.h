@@ -11,6 +11,8 @@
 
 #define HAPI_API_KEY @"testkey123456789"
 
+@class MHHealthData;
+
 typedef void (^MHBooleanResultBlock)(BOOL succeeded, NSError *error);
 typedef void (^MHHealthDataResultBlock)(MHHealthData *user_data, NSError *error);
 typedef void (^MHArrayResultBlock)(NSArray *user_data, NSError *error);

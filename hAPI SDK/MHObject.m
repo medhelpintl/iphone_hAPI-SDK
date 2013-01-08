@@ -15,6 +15,8 @@
 
 @interface MHObject()
 @property (nonatomic, strong) NSMutableDictionary *data;
+
+@property (nonatomic, readwrite, assign) BOOL deleted;
 @end
 
 @implementation MHObject
@@ -42,6 +44,11 @@
     return [deleted boolValue];
 }
 
+- (void) setDeleted:(BOOL)deleted
+{
+    [self.data setValue:[NSNumber numberWithBool:deleted] forKey:kDeleted];
+}
+
 - (id) valueForKey:(NSString *)key
 {
     return [self.data objectForKey:key];
@@ -54,14 +61,16 @@
 {
     if (self = [super init]) {
         self.data = [NSMutableDictionary dictionary];
+        
+        self.deleted = NO;
     }
     return self;
 }
 
-- (id) initWithDictionary:(NSDictionary *)data
+- (id) initWithDictionary:(NSDictionary *)data_
 {
     if (self = [super init]) {
-        self.data = [NSMutableDictionary dictionaryWithDictionary:data];
+        self.data = [NSMutableDictionary dictionaryWithDictionary:data_];
     }
     return self;
 }
@@ -89,15 +98,13 @@
 }
 
 - (BOOL)save:(NSError**)error {
-
-    BOOL success = YES;
     if (self.uniqueId) {
         [[MHAPIClient sharedAPIClient] update:[NSArray arrayWithObject:self] :error];
     } else {
         [[MHAPIClient sharedAPIClient] create:[NSArray arrayWithObject:self] :error];
     }
     
-    return success;
+    return error != nil;
 }
 - (void)saveInBackground {
     [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){

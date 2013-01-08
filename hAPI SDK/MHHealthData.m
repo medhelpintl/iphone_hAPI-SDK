@@ -19,6 +19,14 @@
 #define kCreatedAt @"created_at"
 #define kImmutable @"immutable"
 
+@interface MHHealthData()
+@property (nonatomic, readwrite, strong) NSDate *created_at;
+@property (nonatomic, readwrite, assign) BOOL immutable;
+
++ (NSDateFormatter*) dateFormatter;
++ (NSDateFormatter*) timeFormatter;
+@end
+
 @implementation MHHealthData
 @dynamic userId;
 @dynamic relativeId;
@@ -29,6 +37,31 @@
 @dynamic updated_at;
 @dynamic created_at;
 @dynamic immutable;
+
+#pragma mark -
+#pragma mark DATE FORMATTER
+
++ (NSDateFormatter*) dateFormatter
+{
+    static NSDateFormatter *__dateFormat;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __dateFormat = [[NSDateFormatter alloc] init];
+        [__dateFormat setDateFormat:@"MM-dd-yyyy"];
+    });
+    return __dateFormat;
+}
+
++ (NSDateFormatter*) timeFormatter
+{
+    static NSDateFormatter *__timeFormat;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __timeFormat = [[NSDateFormatter alloc] init];
+        [__timeFormat setDateFormat:@"hh:mm:ss"];
+    });
+    return __timeFormat;
+}
 
 #pragma mark -
 #pragma mark PROPERTIES
@@ -48,6 +81,11 @@
     return [self valueForKey:kDate];
 }
 
+- (void) setDateWithNSDate:(NSDate *)date
+{
+    [self setDate:[[MHHealthData dateFormatter] stringFromDate:date]];
+}
+
 - (void) setDate:(NSString *)date
 {
     [self.data setValue:date forKey:kDate];
@@ -57,6 +95,11 @@
 - (NSString*) time
 {
     return [self valueForKey:kTime];
+}
+
+- (void) setTimeWithNSDate:(NSDate*)time
+{
+    [self setTime:[[MHHealthData timeFormatter] stringFromDate:time]];
 }
 
 - (void) setTime:(NSString *)time
@@ -102,9 +145,19 @@
     return [self valueForKey:kCreatedAt];
 }
 
+- (void) setCreated_at:(NSDate *)created_at
+{
+    [self.data setValue:created_at forKey:kCreatedAt];
+}
+
 - (BOOL) immutable
 {
     return [[self valueForKey:kImmutable] boolValue];
+}
+
+- (void) setImmutable:(BOOL)immutable
+{
+    [self.data setValue:[NSNumber numberWithBool:immutable] forKey:kImmutable];
 }
 
 #pragma mark -
@@ -114,13 +167,17 @@
 - (id)init
 {
     if (self = [super init]) {
-        
+        NSDate *now = [NSDate date];
+        self.created_at = now;
+        [self setDateWithNSDate:now];
+        [self setTimeWithNSDate:now];
+        self.immutable = NO;
     }
     return self;
 }
 
 - (id)initWithFieldName:(NSString*)fieldName forValue:(id)value {
-    if (self = [super init]) {
+    if (self = [self init]) {
         self.field_name = fieldName;
         self.value = value;
     }

@@ -8,13 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-enum MHRequestError {
-    kNetworkNotAvailable = 1,
-    kServerNotAvailable,
-    kInvalidToken,
-    kNoToken
+enum MHHTTPRequestMethod {
+    kPOST = 1,
+    kPUT,
+    kDELETE,
+    kGET
 };
 
 @interface MHRequest : NSObject
+
+@property (nonatomic, strong) NSString *endPoint;
+@property (nonatomic, strong) NSString *body;
+@property (nonatomic, strong) NSDictionary *params;
+@property (nonatomic, assign) enum MHHTTPRequestMethod method;
+
+- (id) initWithEndPoint:(NSString*)endPoint;
+
+- (id) start:(NSError**)error;
 
 @end
