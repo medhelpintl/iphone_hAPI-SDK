@@ -15,14 +15,14 @@
 
 - (NSString*) userID
 {
-#warning HACK
+#warning FISHSTIX
     return @"2024679";
 }
 
-- (NSString*) accessToken
-{
-    return @"BLAH";
-}
+//- (NSString*) accessToken
+//{
+//    return @"BLAH";
+//}
 
 #pragma mark -
 #pragma mark SINGLETON
@@ -56,6 +56,14 @@
     self.accessToken = nil;
     
     completionBlock(nil);
+}
+
+#pragma mark -
+#pragma mark HELPER
+
+- (BOOL) isLoggedIn
+{
+    return self.accessToken != nil;
 }
 
 @end

@@ -20,6 +20,9 @@
 		7268BF27169BA8B40070FAA1 /* MHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7268BF25169BA8B40070FAA1 /* MHViewController.xib */; };
 		7268BF3A169BEAEC0070FAA1 /* libhAPI SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BF33169BA8CE0070FAA1 /* libhAPI SDK.a */; };
 		7268BF4C169CA27C0070FAA1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BF4B169CA27C0070FAA1 /* SystemConfiguration.framework */; };
+		7268BF86169DF13A0070FAA1 /* MHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF84169DF13A0070FAA1 /* MHLoginViewController.m */; };
+		7268BF87169DF13A0070FAA1 /* MHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7268BF85169DF13A0070FAA1 /* MHLoginViewController.xib */; };
+		7268BF8C169DF1A80070FAA1 /* MHMasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF8B169DF1A80070FAA1 /* MHMasterController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,11 @@
 		7268BF26169BA8B40070FAA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MHViewController.xib; sourceTree = "<group>"; };
 		7268BF2D169BA8CE0070FAA1 /* hAPI SDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "hAPI SDK.xcodeproj"; path = "../../hAPI SDK.xcodeproj"; sourceTree = "<group>"; };
 		7268BF4B169CA27C0070FAA1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7268BF83169DF13A0070FAA1 /* MHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLoginViewController.h; sourceTree = "<group>"; };
+		7268BF84169DF13A0070FAA1 /* MHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHLoginViewController.m; sourceTree = "<group>"; };
+		7268BF85169DF13A0070FAA1 /* MHLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHLoginViewController.xib; sourceTree = "<group>"; };
+		7268BF8A169DF1A80070FAA1 /* MHMasterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHMasterController.h; sourceTree = "<group>"; };
+		7268BF8B169DF1A80070FAA1 /* MHMasterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHMasterController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,12 +116,16 @@
 		7268BF10169BA8B40070FAA1 /* hAPI-example */ = {
 			isa = PBXGroup;
 			children = (
+				7268BF88169DF1530070FAA1 /* Control */,
 				7268BF19169BA8B40070FAA1 /* MHAppDelegate.h */,
 				7268BF1A169BA8B40070FAA1 /* MHAppDelegate.m */,
 				7268BF22169BA8B40070FAA1 /* MHViewController.h */,
 				7268BF23169BA8B40070FAA1 /* MHViewController.m */,
 				7268BF25169BA8B40070FAA1 /* MHViewController.xib */,
 				7268BF11169BA8B40070FAA1 /* Supporting Files */,
+				7268BF83169DF13A0070FAA1 /* MHLoginViewController.h */,
+				7268BF84169DF13A0070FAA1 /* MHLoginViewController.m */,
+				7268BF85169DF13A0070FAA1 /* MHLoginViewController.xib */,
 			);
 			path = "hAPI-example";
 			sourceTree = "<group>";
@@ -139,6 +151,23 @@
 				7268BF35169BA8CE0070FAA1 /* hAPI SDKTests.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7268BF88169DF1530070FAA1 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				7268BF89169DF15F0070FAA1 /* Master */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		7268BF89169DF15F0070FAA1 /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				7268BF8A169DF1A80070FAA1 /* MHMasterController.h */,
+				7268BF8B169DF1A80070FAA1 /* MHMasterController.m */,
+			);
+			name = Master;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +250,7 @@
 				7268BF1F169BA8B40070FAA1 /* Default@2x.png in Resources */,
 				7268BF21169BA8B40070FAA1 /* Default-568h@2x.png in Resources */,
 				7268BF27169BA8B40070FAA1 /* MHViewController.xib in Resources */,
+				7268BF87169DF13A0070FAA1 /* MHLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +264,8 @@
 				7268BF17169BA8B40070FAA1 /* main.m in Sources */,
 				7268BF1B169BA8B40070FAA1 /* MHAppDelegate.m in Sources */,
 				7268BF24169BA8B40070FAA1 /* MHViewController.m in Sources */,
+				7268BF86169DF13A0070FAA1 /* MHLoginViewController.m in Sources */,
+				7268BF8C169DF1A80070FAA1 /* MHMasterController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

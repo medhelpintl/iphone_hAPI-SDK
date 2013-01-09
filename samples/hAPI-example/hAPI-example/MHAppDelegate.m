@@ -9,6 +9,8 @@
 #import "MHAppDelegate.h"
 
 #import "MHViewController.h"
+#import "MHMasterController.h"
+#import "MHLoginClient.h"
 
 @implementation MHAppDelegate
 
@@ -16,9 +18,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[MHViewController alloc] initWithNibName:@"MHViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+//    self.viewController = [[MHViewController alloc] initWithNibName:@"MHViewController" bundle:nil];
+//    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [[MHMasterController sharedMasterControl] home];
+    if (![[MHLoginClient sharedLoginClient] isLoggedIn]) {
+        [[MHMasterController sharedMasterControl] login];
+    }
+    
     return YES;
 }
 

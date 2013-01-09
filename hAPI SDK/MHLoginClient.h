@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GlobalConstants.h"
+
 @interface MHLoginClient : NSObject
 
 @property (nonatomic, strong) NSString *userID;
@@ -22,5 +24,7 @@
 - (void) login:(NSString*)userName :(NSString*)password :(MHErrorBlock)completionBlock;
 
 - (void) logout:(MHErrorBlock)completionBlock;
+
+- (BOOL) isLoggedIn;
 
 @end
