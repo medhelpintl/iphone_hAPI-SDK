@@ -30,7 +30,7 @@
 
     [self.lbl setText:@"Saving"];
     
-    MHHealthData *mhObj = [[MHHealthData alloc] initWithFieldName:@"headache" forValue:@YES];
+    MHHealthData *mhObj = [[MHHealthData alloc] initWithFieldName:@"Weight" forValue:@100];
     [mhObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         NSLog(@"Success: %i", succeeded);
         NSLog(@"Error: %@", error);

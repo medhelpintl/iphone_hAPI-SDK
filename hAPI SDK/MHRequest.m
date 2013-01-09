@@ -86,21 +86,30 @@
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
     
     // Method, Endpoint, Params
-    NSURLRequest *urlRequest = [[MHHTTPClient sharedInstance] requestWithMethod:self.httpMethod path:self.endPoint parameters:self.params];
-
+    NSMutableURLRequest *urlRequest = [[MHHTTPClient sharedInstance] requestWithMethod:self.httpMethod path:self.endPoint parameters:self.params];
+    [urlRequest setHTTPBody:[self.body dataUsingEncoding:NSUTF8StringEncoding]];
+    
     DLog(@"URL: %@", urlRequest.URL.absoluteString);
     
-    AFHTTPRequestOperation *httpRequest = [[MHHTTPClient sharedInstance] HTTPRequestOperationWithRequest:urlRequest success:^(AFHTTPRequestOperation *operation, id response) {
-        json = response;
+    AFJSONRequestOperation *httpRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        DLog(@"JSON SUCCESS");
+        DLog(@"JSON: %@", JSON);
         
-        DLog(@"SUCCESS: %@", response);
+        int status_code = [[JSON valueForKeyPath:@"status_code"] intValue];
+        NSString *data = [JSON valueForKeyPath:@"data"];
+        
+        DLog(@"Status: %i", status_code);
+        DLog(@"Data: %@", data);
+        
         dispatch_semaphore_signal(sema);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error__) {
-        error_ = error__;
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+    
+        DLog(@"JSON FAILURE");
+        DLog(@"ERROR: %@", error);
         
-        DLog(@"FAILURE: %@", error__);
         dispatch_semaphore_signal(sema);
     }];
+
     DLog(@"Class: %@", NSStringFromClass([httpRequest class]));
     [[MHHTTPClient sharedInstance] enqueueHTTPRequestOperation:httpRequest];
     [httpRequest start];

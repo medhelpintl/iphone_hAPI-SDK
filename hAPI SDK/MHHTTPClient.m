@@ -11,7 +11,7 @@
 #import "MedHelp.h"
 #import "MHOAuthManager.h"
 
-//#define MHAPIBaseURLString @"http://hapi-1710-test.apigee.net/v1/"
+//#define MHAPIBaseURLString @"https://hapi-1710-test.apigee.net/v1/"
 #define MHAPIBaseURLString @"http://hapi.partner2.medhelp.ws"
 
 @interface MHHTTPClient()
@@ -40,6 +40,7 @@
     self = [super initWithBaseURL:url];
     if (self) {
         //custom settings
+        [self setParameterEncoding:AFJSONParameterEncoding];
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         
         // Monitor Access Token on Auth Manager
@@ -48,6 +49,7 @@
         [self.operationQueue setMaxConcurrentOperationCount:1];
         
         [self setDefaultHeader:@"appID" value:[MedHelp appID]];
+        [self setDefaultHeader:@"Content-Type" value:@"text/json"];
         
 #ifdef _SYSTEMCONFIGURATION_H
         [self startMonitoringNetworkReachability];

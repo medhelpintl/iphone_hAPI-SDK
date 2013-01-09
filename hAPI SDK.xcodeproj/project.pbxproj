@@ -49,6 +49,7 @@
 		7268BEF2169B564B0070FAA1 /* MHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEF1169B564B0070FAA1 /* MHRequest.m */; };
 		7268BEF6169B63410070FAA1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEF5169B63410070FAA1 /* Reachability.m */; };
 		7268BF4A169C9FD10070FAA1 /* MHError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF49169C9FD10070FAA1 /* MHError.m */; };
+		7268BF82169D079E0070FAA1 /* NSDate+hAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF81169D079E0070FAA1 /* NSDate+hAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,8 @@
 		7268BEF5169B63410070FAA1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		7268BF48169C9FD10070FAA1 /* MHError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHError.h; sourceTree = "<group>"; };
 		7268BF49169C9FD10070FAA1 /* MHError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHError.m; sourceTree = "<group>"; };
+		7268BF80169D079E0070FAA1 /* NSDate+hAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+hAPI.h"; path = "hAPI SDK/NSDate+hAPI.h"; sourceTree = "<group>"; };
+		7268BF81169D079E0070FAA1 /* NSDate+hAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+hAPI.m"; path = "hAPI SDK/NSDate+hAPI.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,7 @@
 		23304ADB1665AFDA00705054 = {
 			isa = PBXGroup;
 			children = (
+				7268BF7F169D077E0070FAA1 /* Extensions */,
 				7268BEF3169B63410070FAA1 /* Reachability */,
 				23304B69167946D200705054 /* AFNetworking */,
 				23304AF01665AFDA00705054 /* hAPI SDK */,
@@ -312,6 +316,15 @@
 			name = Error;
 			sourceTree = "<group>";
 		};
+		7268BF7F169D077E0070FAA1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7268BF80169D079E0070FAA1 /* NSDate+hAPI.h */,
+				7268BF81169D079E0070FAA1 /* NSDate+hAPI.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -439,6 +452,7 @@
 				7268BEF2169B564B0070FAA1 /* MHRequest.m in Sources */,
 				7268BEF6169B63410070FAA1 /* Reachability.m in Sources */,
 				7268BF4A169C9FD10070FAA1 /* MHError.m in Sources */,
+				7268BF82169D079E0070FAA1 /* NSDate+hAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

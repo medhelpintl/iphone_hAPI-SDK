@@ -8,6 +8,7 @@
 
 #import "MHHealthData.h"
 #import "MHAPIClient.h"
+#import "NSDate+hAPI.h"
 
 #define kUserID @"user_id"
 #define kRelativeID @"relative_id"
@@ -92,19 +93,30 @@
     [self setUpdated_at:[NSDate date]];
 }
 
-- (NSString*) time
+- (NSInteger) time
 {
-    return [self valueForKey:kTime];
+    return [[self valueForKey:kTime] intValue];
 }
 
 - (void) setTimeWithNSDate:(NSDate*)time
 {
-    [self setTime:[[MHHealthData timeFormatter] stringFromDate:time]];
+    NSDate *midnight = [time midnight];
+    int timeSinceMidnight = [time timeIntervalSince1970] - [midnight timeIntervalSince1970];
+    
+    [self setTime:timeSinceMidnight];
 }
 
-- (void) setTime:(NSString *)time
+- (NSDate*) getTimeAsNSDate
 {
-    [self.data setValue:time forKey:kTime];
+    int timeSinceMidnight = [self time];
+    NSDate *date = [[MHHealthData dateFormatter] dateFromString:self.date];
+    
+    return [date dateByAddingTimeInterval:timeSinceMidnight];
+}
+
+- (void) setTime:(NSInteger)time
+{
+    [self.data setValue:[NSNumber numberWithInt:time] forKey:kTime];
     [self setUpdated_at:[NSDate date]];
 }
 

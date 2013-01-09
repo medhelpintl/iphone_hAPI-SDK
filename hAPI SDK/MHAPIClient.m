@@ -46,15 +46,16 @@
 // Convert to JSON Array
     NSMutableArray *json_user_data = [NSMutableArray array];
     for (MHObject *obj in user_data) {
-        [json_user_data addObject:obj.data];
+        [json_user_data addObject:[obj getAsDictionary]];
     }
 
     DLog(@"JSON: %@", json_user_data);
-
+    
 // Perform Request
     MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
-    [request setBody:[NSString stringWithFormat:@"%@", json_user_data]];
+    [request setBody:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:json_user_data options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding]];
 //    [request setPost];
+//    [request setParams:[NSDictionary dictionaryWithObject:@"application/json" forKey:@"Content-Type"]];
     NSArray *response = (NSArray *)[request start:error];
 
     DLog(@"Response: %@", response);

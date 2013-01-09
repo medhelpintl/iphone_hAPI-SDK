@@ -55,6 +55,27 @@
 }
 
 #pragma mark -
+#pragma mark JSON HELPER
+
+- (NSDictionary*) getAsDictionary {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    
+    for (NSString *key in [self.data allKeys]) {
+        id value = [self.data objectForKey:key];
+        if ([value isKindOfClass:[NSDate class]]) {
+            value = [dateFormatter stringFromDate:(NSDate*)value];
+        }
+        
+        [dict setObject:value forKey:key];
+    }
+    
+    return dict;
+}
+
+#pragma mark -
 #pragma mark INIT
 
 - (id)init

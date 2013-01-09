@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *relativeId;
 @property (nonatomic, strong) NSString *date;
-@property (nonatomic, strong) NSString *time;
+@property (nonatomic, assign) NSInteger time;
 @property (nonatomic, strong) NSString *field_name;
 @property (nonatomic, weak) id value;
 @property (nonatomic, readonly) NSDate *updated_at;
@@ -25,6 +25,7 @@
 // Helper
 - (void) setDateWithNSDate:(NSDate*)date;
 - (void) setTimeWithNSDate:(NSDate*)time;
+- (NSDate*) getTimeAsNSDate;
 
 + (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
 

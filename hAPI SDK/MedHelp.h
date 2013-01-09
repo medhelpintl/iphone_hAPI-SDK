@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "GlobalConstants.h"
+#import "NSDate+hAPI.h"
 
 @interface MedHelp : NSObject
 + (void) startWithAppID:(NSString*) appID;
