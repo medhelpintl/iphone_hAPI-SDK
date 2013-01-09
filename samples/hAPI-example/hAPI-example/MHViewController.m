@@ -9,7 +9,10 @@
 #import "MHViewController.h"
 
 #import "MedHelp.h"
+#import "MHLoginClient.h"
 #import "MHHealthData.h"
+
+#import "MHMasterController.h"
 
 @interface MHViewController ()
 
@@ -31,20 +34,28 @@
     [self.lbl setText:@"Saving"];
     
     MHHealthData *mhObj = [[MHHealthData alloc] initWithFieldName:@"Weight" forValue:@100];
-    [mhObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        NSLog(@"Success: %i", succeeded);
-        NSLog(@"Error: %@", error);
-        
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            [self.lbl setText:@"Saved"];
-        });
-    }];
+//    [mhObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        NSLog(@"Success: %i", succeeded);
+//        NSLog(@"Error: %@", error);
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^(void){
+//            [self.lbl setText:@"Saved"];
+//        });
+//    }];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark -
+#pragma mark AUTH
+
+- (IBAction)logout:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[MHLoginClient sharedLoginClient] logout:^(NSError *error) {
+        if (error == nil) {
+            [[MHMasterController sharedMasterControl] login];
+        } else {
+            // POp up
+        }
+    }];
 }
 
 @end
