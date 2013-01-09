@@ -10,8 +10,12 @@
 
 #import "MHLoginViewController.h"
 #import "MHViewController.h"
+#import "MHReadViewController.h"
 
 @interface MHMasterController()
+@property (nonatomic, strong) UINavigationController *homeNavController;
+
+@property (nonatomic, strong) MHReadViewController *readController;
 @property (nonatomic, strong) MHViewController *homeController;
 @property (nonatomic, strong) MHLoginViewController *loginController;
 @end
@@ -25,8 +29,11 @@
 {
     if (self = [super init]) {
         //
+        self.readController = [[MHReadViewController alloc] initWithNibName:@"MHReadViewController" bundle:nil];
         self.homeController = [[MHViewController alloc] initWithNibName:@"MHViewController" bundle:nil];
         self.loginController = [[MHLoginViewController alloc] initWithNibName:@"MHLoginViewController" bundle:nil];
+
+        self.homeNavController = [[UINavigationController alloc] initWithRootViewController:self.homeNavController];
     }
     return self;
 }
@@ -52,10 +59,18 @@
 {
     // Make sure it's root
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    window.rootViewController = self.homeController;
+    window.rootViewController = self.homeNavController;
+    
+    [self.homeNavController setViewControllers:[NSArray arrayWithObject:self.homeController] animated:self.homeNavController.viewControllers.count > 1];
     
     // Dismiss Login if it exists...
     [self.homeController dismissViewControllerAnimated:YES completion:^(void) {}];
+}
+
+- (void) read
+{
+    [self home];
+    [self.homeNavController pushViewController:self.readController animated:YES];
 }
 
 - (void) login

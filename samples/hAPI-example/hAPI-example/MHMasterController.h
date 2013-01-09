@@ -14,5 +14,6 @@
 
 - (void) login;
 - (void) home;
+- (void) read;
 
 @end

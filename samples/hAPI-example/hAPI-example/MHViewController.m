@@ -45,6 +45,14 @@
 }
 
 #pragma mark -
+#pragma mark DATA
+
+- (IBAction)read:(id)sender
+{
+    [[MHMasterController sharedMasterControl] read];
+}
+
+#pragma mark -
 #pragma mark AUTH
 
 - (IBAction)logout:(id)sender

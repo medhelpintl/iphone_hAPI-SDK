@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *lbl;
 
+- (IBAction)read:(id)sender;
 - (IBAction)logout:(id)sender;
 
 @end

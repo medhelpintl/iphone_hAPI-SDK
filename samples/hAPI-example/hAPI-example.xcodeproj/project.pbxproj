@@ -23,6 +23,8 @@
 		7268BF86169DF13A0070FAA1 /* MHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF84169DF13A0070FAA1 /* MHLoginViewController.m */; };
 		7268BF87169DF13A0070FAA1 /* MHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7268BF85169DF13A0070FAA1 /* MHLoginViewController.xib */; };
 		7268BF8C169DF1A80070FAA1 /* MHMasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF8B169DF1A80070FAA1 /* MHMasterController.m */; };
+		7268BF93169DFD340070FAA1 /* MHReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF91169DFD340070FAA1 /* MHReadViewController.m */; };
+		7268BF94169DFD340070FAA1 /* MHReadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7268BF92169DFD340070FAA1 /* MHReadViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,9 @@
 		7268BF85169DF13A0070FAA1 /* MHLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHLoginViewController.xib; sourceTree = "<group>"; };
 		7268BF8A169DF1A80070FAA1 /* MHMasterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHMasterController.h; sourceTree = "<group>"; };
 		7268BF8B169DF1A80070FAA1 /* MHMasterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHMasterController.m; sourceTree = "<group>"; };
+		7268BF90169DFD340070FAA1 /* MHReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHReadViewController.h; sourceTree = "<group>"; };
+		7268BF91169DFD340070FAA1 /* MHReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHReadViewController.m; sourceTree = "<group>"; };
+		7268BF92169DFD340070FAA1 /* MHReadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHReadViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,13 +124,7 @@
 				7268BF88169DF1530070FAA1 /* Control */,
 				7268BF19169BA8B40070FAA1 /* MHAppDelegate.h */,
 				7268BF1A169BA8B40070FAA1 /* MHAppDelegate.m */,
-				7268BF22169BA8B40070FAA1 /* MHViewController.h */,
-				7268BF23169BA8B40070FAA1 /* MHViewController.m */,
-				7268BF25169BA8B40070FAA1 /* MHViewController.xib */,
 				7268BF11169BA8B40070FAA1 /* Supporting Files */,
-				7268BF83169DF13A0070FAA1 /* MHLoginViewController.h */,
-				7268BF84169DF13A0070FAA1 /* MHLoginViewController.m */,
-				7268BF85169DF13A0070FAA1 /* MHLoginViewController.xib */,
 			);
 			path = "hAPI-example";
 			sourceTree = "<group>";
@@ -156,6 +155,9 @@
 		7268BF88169DF1530070FAA1 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				7268BF8F169DFD0C0070FAA1 /* Home */,
+				7268BF8E169DFCF40070FAA1 /* Data */,
+				7268BF8D169DFCE80070FAA1 /* Auth */,
 				7268BF89169DF15F0070FAA1 /* Master */,
 			);
 			name = Control;
@@ -168,6 +170,36 @@
 				7268BF8B169DF1A80070FAA1 /* MHMasterController.m */,
 			);
 			name = Master;
+			sourceTree = "<group>";
+		};
+		7268BF8D169DFCE80070FAA1 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7268BF83169DF13A0070FAA1 /* MHLoginViewController.h */,
+				7268BF84169DF13A0070FAA1 /* MHLoginViewController.m */,
+				7268BF85169DF13A0070FAA1 /* MHLoginViewController.xib */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		7268BF8E169DFCF40070FAA1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7268BF90169DFD340070FAA1 /* MHReadViewController.h */,
+				7268BF91169DFD340070FAA1 /* MHReadViewController.m */,
+				7268BF92169DFD340070FAA1 /* MHReadViewController.xib */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		7268BF8F169DFD0C0070FAA1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7268BF22169BA8B40070FAA1 /* MHViewController.h */,
+				7268BF23169BA8B40070FAA1 /* MHViewController.m */,
+				7268BF25169BA8B40070FAA1 /* MHViewController.xib */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +283,7 @@
 				7268BF21169BA8B40070FAA1 /* Default-568h@2x.png in Resources */,
 				7268BF27169BA8B40070FAA1 /* MHViewController.xib in Resources */,
 				7268BF87169DF13A0070FAA1 /* MHLoginViewController.xib in Resources */,
+				7268BF94169DFD340070FAA1 /* MHReadViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +299,7 @@
 				7268BF24169BA8B40070FAA1 /* MHViewController.m in Sources */,
 				7268BF86169DF13A0070FAA1 /* MHLoginViewController.m in Sources */,
 				7268BF8C169DF1A80070FAA1 /* MHMasterController.m in Sources */,
+				7268BF93169DFD340070FAA1 /* MHReadViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GlobalConstants.h"
+
 @interface MHObject : NSObject
 // This goes in another object...
 + (BOOL)saveAll:(NSArray*)user_data;
