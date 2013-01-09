@@ -9,6 +9,7 @@
 #import "MHHealthData.h"
 #import "MHAPIClient.h"
 #import "NSDate+hAPI.h"
+#import "NSDateFormatter+hAPI.h"
 
 #define kUserID @"user_id"
 #define kRelativeID @"relative_id"
@@ -23,9 +24,6 @@
 @interface MHHealthData()
 @property (nonatomic, readwrite, strong) NSDate *created_at;
 @property (nonatomic, readwrite, assign) BOOL immutable;
-
-+ (NSDateFormatter*) dateFormatter;
-+ (NSDateFormatter*) timeFormatter;
 @end
 
 @implementation MHHealthData
@@ -38,31 +36,6 @@
 @dynamic updated_at;
 @dynamic created_at;
 @dynamic immutable;
-
-#pragma mark -
-#pragma mark DATE FORMATTER
-
-+ (NSDateFormatter*) dateFormatter
-{
-    static NSDateFormatter *__dateFormat;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        __dateFormat = [[NSDateFormatter alloc] init];
-        [__dateFormat setDateFormat:@"MM-dd-yyyy"];
-    });
-    return __dateFormat;
-}
-
-+ (NSDateFormatter*) timeFormatter
-{
-    static NSDateFormatter *__timeFormat;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        __timeFormat = [[NSDateFormatter alloc] init];
-        [__timeFormat setDateFormat:@"hh:mm:ss"];
-    });
-    return __timeFormat;
-}
 
 #pragma mark -
 #pragma mark PROPERTIES
@@ -84,7 +57,7 @@
 
 - (void) setDateWithNSDate:(NSDate *)date
 {
-    [self setDate:[[MHHealthData dateFormatter] stringFromDate:date]];
+    [self setDate:[[NSDateFormatter hAPIDateFormatter] stringFromDate:date]];
 }
 
 - (void) setDate:(NSString *)date
@@ -109,7 +82,7 @@
 - (NSDate*) getTimeAsNSDate
 {
     int timeSinceMidnight = [self time];
-    NSDate *date = [[MHHealthData dateFormatter] dateFromString:self.date];
+    NSDate *date = [[NSDateFormatter hAPIDateFormatter] dateFromString:self.date];
     
     return [date dateByAddingTimeInterval:timeSinceMidnight];
 }

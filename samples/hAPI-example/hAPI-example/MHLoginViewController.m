@@ -26,6 +26,7 @@
             [[MHMasterController sharedMasterControl] home];
         } else {
             // Pop up
+            [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Unsuccessful Login" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles: nil] show];
         }
     }];
 }

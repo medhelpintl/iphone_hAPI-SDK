@@ -8,6 +8,8 @@
 
 #import "MHAPIClient.h"
 
+#import "NSDateFormatter+hAPI.h"
+
 #import "MHRequest.h"
 #import "MHLoginClient.h"
 
@@ -53,9 +55,8 @@
     
 // Perform Request
     MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
+    [request setMethod:kPOST];
     [request setBody:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:json_user_data options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding]];
-//    [request setPost];
-//    [request setParams:[NSDictionary dictionaryWithObject:@"application/json" forKey:@"Content-Type"]];
     NSArray *response = (NSArray *)[request start:error];
 
     DLog(@"Response: %@", response);
@@ -91,7 +92,7 @@
 // Perform Request
     MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
     [request setBody:[NSString stringWithFormat:@"%@", json_user_data]];
-//    [request setPut];
+    [request setMethod:kPUT];
     NSArray *response = (NSArray *)[request start:error];
     
 // Manage Response
@@ -118,18 +119,19 @@
     
 // Perform Request
     MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            field_names, @"field_names",
-                            startDate, @"start_date",
-                            endDate, @"end_date",
-                            updatedDate, @"updated_after",
-                            @0, @"limit",
-                            @0, @"offset",
-                            @0, @"page",
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                            [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:field_names options:0 error:nil] encoding:NSUTF8StringEncoding], @"field_names",
+                            [[NSDateFormatter iec958Formatter] stringFromDate:startDate], @"start_date",
+                            [[NSDateFormatter iec958Formatter] stringFromDate:endDate], @"end_date",
+                            @1, @"page",
                             @100, @"per_page",
                             nil];
+    if (updatedDate) {
+        [params setObject:[[NSDateFormatter iec958Formatter] stringFromDate:updatedDate] forKey:@"updated_after"];
+    }
     [request setParams:params];
-
+    [request setMethod:kGET];
+    
     NSDictionary *response = (NSDictionary *)[request start:error];
 
     int page = [[response objectForKey:@"page"] intValue];
@@ -153,7 +155,7 @@
         for (int i = 1; i < pages; i++) {
             MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
             NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    query_id, @"quer_id",
+                                    query_id, @"query_id",
                                     i, @"page",
                                     nil];
             [request setParams:params];
@@ -193,7 +195,7 @@
 // Perform Request
     MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
     [request setBody:[NSString stringWithFormat:@"%@", json_user_data]];
-    //    [request setDelete];
+    [request setMethod:kDELETE];
     NSArray *response = (NSArray *)[request start:error];
 
     // Manage Response

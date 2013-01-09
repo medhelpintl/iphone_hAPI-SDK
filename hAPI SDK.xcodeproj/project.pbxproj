@@ -50,6 +50,7 @@
 		7268BEF6169B63410070FAA1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEF5169B63410070FAA1 /* Reachability.m */; };
 		7268BF4A169C9FD10070FAA1 /* MHError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF49169C9FD10070FAA1 /* MHError.m */; };
 		7268BF82169D079E0070FAA1 /* NSDate+hAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF81169D079E0070FAA1 /* NSDate+hAPI.m */; };
+		7268BF97169E15880070FAA1 /* NSDateFormatter+hAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF96169E15880070FAA1 /* NSDateFormatter+hAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,8 @@
 		7268BF49169C9FD10070FAA1 /* MHError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHError.m; sourceTree = "<group>"; };
 		7268BF80169D079E0070FAA1 /* NSDate+hAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+hAPI.h"; path = "hAPI SDK/NSDate+hAPI.h"; sourceTree = "<group>"; };
 		7268BF81169D079E0070FAA1 /* NSDate+hAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+hAPI.m"; path = "hAPI SDK/NSDate+hAPI.m"; sourceTree = "<group>"; };
+		7268BF95169E15880070FAA1 /* NSDateFormatter+hAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+hAPI.h"; path = "hAPI SDK/NSDateFormatter+hAPI.h"; sourceTree = "<group>"; };
+		7268BF96169E15880070FAA1 /* NSDateFormatter+hAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+hAPI.m"; path = "hAPI SDK/NSDateFormatter+hAPI.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +324,8 @@
 			children = (
 				7268BF80169D079E0070FAA1 /* NSDate+hAPI.h */,
 				7268BF81169D079E0070FAA1 /* NSDate+hAPI.m */,
+				7268BF95169E15880070FAA1 /* NSDateFormatter+hAPI.h */,
+				7268BF96169E15880070FAA1 /* NSDateFormatter+hAPI.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				7268BEF6169B63410070FAA1 /* Reachability.m in Sources */,
 				7268BF4A169C9FD10070FAA1 /* MHError.m in Sources */,
 				7268BF82169D079E0070FAA1 /* NSDate+hAPI.m in Sources */,
+				7268BF97169E15880070FAA1 /* NSDateFormatter+hAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
