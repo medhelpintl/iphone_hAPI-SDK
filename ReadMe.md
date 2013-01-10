@@ -16,3 +16,8 @@ Target:
 Link Binary With Libraries
 
 include libhAPI SDK.a
+
+
+In your applications didFinishLaunchingWithOptions
+
+[MedHelp startWithAppID:@"yourAppID"];
