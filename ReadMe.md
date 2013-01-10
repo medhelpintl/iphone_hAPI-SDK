@@ -1,5 +1,5 @@
-Instalation
-===========
+Installation
+============
 
 Include hAPI SDK.xcodeproj in your project.
 
