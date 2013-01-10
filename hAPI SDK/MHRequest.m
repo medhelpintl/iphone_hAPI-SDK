@@ -8,11 +8,9 @@
 
 #import "MHRequest.h"
 
-#import "MHHTTPClient.h"
-#import "MHLoginClient.h"
+#import "MedHelp.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
-#import "MHError.h"
 
 @interface MHRequest ()
 @property (nonatomic, strong) AFJSONRequestOperation *request;
@@ -74,10 +72,14 @@
     }
     
 // Perform Network Request
+    // Client ID
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:self.params];
+    [params setObject:[MedHelp appID] forKey:@"client_id"];
+    
     DLog(@"EndPoint: %@", self.endPoint);
     DLog(@"Method: %@", self.httpMethod);
     DLog(@"Body: %@", self.body);
-    DLog(@"Params: %@", self.params);
+    DLog(@"Params: %@", params);
     
     __block id json = nil;
     __block NSError *error_success = nil;
@@ -87,7 +89,7 @@
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
     
     // Method, Endpoint, Params
-    NSMutableURLRequest *urlRequest = [[MHHTTPClient sharedInstance] requestWithMethod:self.httpMethod path:self.endPoint parameters:self.params];
+    NSMutableURLRequest *urlRequest = [[MHHTTPClient sharedInstance] requestWithMethod:self.httpMethod path:self.endPoint parameters:params];
     [urlRequest setHTTPBody:[self.body dataUsingEncoding:NSUTF8StringEncoding]];
     
     DLog(@"URL: %@", urlRequest.URL.absoluteString);
