@@ -125,7 +125,8 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                             [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:field_names options:0 error:nil] encoding:NSUTF8StringEncoding], @"field_names",
                             @1, @"page",
-                            @100, @"per_page",
+//                            @100, @"per_page",
+                            @1, @"per_page",
                             nil];
     if (startDate && endDate) {
         [params setObject:[[NSDateFormatter iec958Formatter] stringFromDate:startDate] forKey:@"start_date"];
@@ -158,13 +159,14 @@
 //    set per_page 100
 //    set pages 1
 //    set query_id
-    if (pages > 1) {
+    if (pages > 1 && query_id) {
         for (int i = 1; i < pages; i++) {
             MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
             NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                                     query_id, @"query_id",
                                     i, @"page",
                                     nil];
+            [request setMethod:kGET];
             [request setParams:params];
 
             response = (NSDictionary *)[request start:error];

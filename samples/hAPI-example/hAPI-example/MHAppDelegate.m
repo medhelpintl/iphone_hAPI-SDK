@@ -17,10 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initialize MedHelp with your App ID
+    [MedHelp startWithAppID:@"MH1234"];
+    
+    // Not the best way for initializing the window...
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-//    self.viewController = [[MHViewController alloc] initWithNibName:@"MHViewController" bundle:nil];
-//    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
     [[MHMasterController sharedMasterControl] home];
