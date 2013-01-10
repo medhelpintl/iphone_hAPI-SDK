@@ -17,6 +17,16 @@
     return [MHError errorWithDomain:kMHErrorDomain code:kNetworkNotAvailable userInfo:nil];
 }
 
++ (MHError*) serverError
+{
+    return [MHError serverErrorWithUserInfo:nil];
+}
+
++ (MHError*) serverErrorWithUserInfo:(NSDictionary *)userInfo
+{
+    return [MHError errorWithDomain:kMHErrorDomain code:kServerError userInfo:userInfo];
+}
+
 + (MHError*) serverNotAvailableError
 {
     return [MHError serverNotAvailableErrorWithUserInfo:nil];
