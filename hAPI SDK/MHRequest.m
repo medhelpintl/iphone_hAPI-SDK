@@ -104,7 +104,7 @@
                 break;
             default:
                 // Error
-                error_success = [MHError errorWithDomain:@"MedHelp" code:status_code userInfo:nil];
+                error_success = [MHError errorWithDomain:@"MedHelp" code:status_code userInfo:[NSDictionary dictionaryWithObject:data forKey:@"data"]];
                 break;
         }
         
@@ -115,15 +115,14 @@
         dispatch_semaphore_signal(sema);
     }];
 
-//    [[MHHTTPClient sharedInstance] enqueueHTTPRequestOperation:httpRequest];
-    [httpRequest start];
+    [[MHHTTPClient sharedInstance] enqueueHTTPRequestOperation:httpRequest];
 
     dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
     
     // Set Error
     if (error_fail) { // Networking Error
-        *error = [MHError serverNotAvailableError];
-    } else {
+        *error = [MHError serverNotAvailableErrorWithUserInfo:error_fail.userInfo];
+    } else { // hAPI Error
         *error = error_success;
     }
     

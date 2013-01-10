@@ -19,6 +19,7 @@ enum MHRequestError {
 
 + (MHError*) networkNotAvailableError;
 + (MHError*) serverNotAvailableError;
++ (MHError*) serverNotAvailableErrorWithUserInfo:(NSDictionary*) userInfo;
 + (MHError*) invalidTokenError;
 + (MHError*) noTokenError;
 

@@ -171,6 +171,10 @@
 
             response = (NSDictionary *)[request start:error];
             
+            if (!response) {
+                break;
+            }
+            
             NSArray *more_json_user_data = (NSArray*) [response objectForKey:@"data"];
             json_user_data = [json_user_data arrayByAddingObjectsFromArray:more_json_user_data];
         }

@@ -19,7 +19,12 @@
 
 + (MHError*) serverNotAvailableError
 {
-    return [MHError errorWithDomain:kMHErrorDomain code:kServerNotAvailable userInfo:nil];
+    return [MHError serverNotAvailableErrorWithUserInfo:nil];
+}
+
++ (MHError*) serverNotAvailableErrorWithUserInfo:(NSDictionary *)userInfo
+{
+    return [MHError errorWithDomain:kMHErrorDomain code:kServerNotAvailable userInfo:userInfo];
 }
 
 + (MHError*) invalidTokenError
