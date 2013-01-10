@@ -33,9 +33,19 @@
     return [self valueForKey:kUniqueID];
 }
 
+- (void) setUniqueId:(NSString *)uniqueId
+{
+    [self.data setObject:uniqueId forKey:kUniqueID];
+}
+
 - (NSString*) clientId
 {
     return [self valueForKey:kClientID];
+}
+
+- (void) setClientId:(NSString *)clientId
+{
+    [self.data setObject:clientId forKey:kClientID];
 }
 
 - (BOOL) deleted

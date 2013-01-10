@@ -80,7 +80,8 @@
     DLog(@"Params: %@", self.params);
     
     __block id json = nil;
-    __block NSError *error_ = nil;
+    __block NSError *error_success = nil;
+    __block NSError *error_fail = nil;
     
     // Single Threaded Semaphore
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
@@ -92,33 +93,38 @@
     DLog(@"URL: %@", urlRequest.URL.absoluteString);
     
     AFJSONRequestOperation *httpRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        DLog(@"JSON SUCCESS");
-        DLog(@"JSON: %@", JSON);
         
         int status_code = [[JSON valueForKeyPath:@"status_code"] intValue];
         NSString *data = [JSON valueForKeyPath:@"data"];
         
-        DLog(@"Status: %i", status_code);
-        DLog(@"Data: %@", data);
+        // Switch on status_code
+        switch (status_code) {
+            case 0:
+                json = data;
+                break;
+            default:
+                // Error
+                error_success = [MHError errorWithDomain:@"MedHelp" code:status_code userInfo:nil];
+                break;
+        }
         
         dispatch_semaphore_signal(sema);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-    
-        DLog(@"JSON FAILURE");
-        DLog(@"ERROR: %@", error);
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error_, id JSON) {
+        error_fail = error_;
         
         dispatch_semaphore_signal(sema);
     }];
 
-    DLog(@"Class: %@", NSStringFromClass([httpRequest class]));
-    [[MHHTTPClient sharedInstance] enqueueHTTPRequestOperation:httpRequest];
+//    [[MHHTTPClient sharedInstance] enqueueHTTPRequestOperation:httpRequest];
     [httpRequest start];
 
     dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
     
     // Set Error
-    if (error_) { // Networking Error
+    if (error_fail) { // Networking Error
         *error = [MHError serverNotAvailableError];
+    } else {
+        *error = error_success;
     }
     
     return json;

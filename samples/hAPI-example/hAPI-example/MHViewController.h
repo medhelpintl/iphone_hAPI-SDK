@@ -10,7 +10,14 @@
 
 @interface MHViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UILabel *lbl;
+@property (nonatomic, strong) IBOutlet UILabel *latestWeightLbl;
+@property (nonatomic, strong) IBOutlet UITextField *updateWeightTextField;
+@property (nonatomic, strong) IBOutlet UITextField *addWeightTextField;
+@property (nonatomic, strong) IBOutlet UIButton *updateWeightBtn;
+@property (nonatomic, strong) IBOutlet UIButton *addWeightBtn;
+
+- (IBAction)updateWeight:(id)sender;
+- (IBAction)newWeight:(id)sender;
 
 - (IBAction)read:(id)sender;
 - (IBAction)logout:(id)sender;

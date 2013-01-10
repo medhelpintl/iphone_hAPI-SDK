@@ -67,14 +67,20 @@
         MHObject *obj = [user_data objectAtIndex:i];
         
         NSString *identifier = [response_obj objectForKey:@"id"];
-        NSDictionary *error = [response_obj objectForKey:@"error"];
+        NSDictionary *error = [response_obj objectForKey:@"errors"];
         NSString *clientID = [response_obj objectForKey:@"external_id"];
         
         DLog(@"%@, %@, %@", identifier, error, clientID);
         
-        [obj setUniqueId:identifier];
+        if (error) {
+            //
+#warning Handle Error
+        } else {
+            [obj setUniqueId:identifier];
+            
+            DLog(@"New Obj: %@", obj.data);
+        }
         
-        DLog(@"New Obj: %@", obj.data);
     }
 }
 
@@ -114,18 +120,18 @@
 
 - (NSArray*) read:(NSArray *)field_names :(NSDate *)startDate :(NSDate *)endDate :(NSDate *)updatedDate :(NSError *__autoreleasing *)error
 {
-//    STATELESS
-    DLog(@"READ %@, %@, %@, %@", field_names, startDate, endDate, updatedDate);
-    
 // Perform Request
     MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                             [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:field_names options:0 error:nil] encoding:NSUTF8StringEncoding], @"field_names",
-                            [[NSDateFormatter iec958Formatter] stringFromDate:startDate], @"start_date",
-                            [[NSDateFormatter iec958Formatter] stringFromDate:endDate], @"end_date",
                             @1, @"page",
                             @100, @"per_page",
                             nil];
+    if (startDate && endDate) {
+        [params setObject:[[NSDateFormatter iec958Formatter] stringFromDate:startDate] forKey:@"start_date"];
+        [params setObject:[[NSDateFormatter iec958Formatter] stringFromDate:endDate] forKey:@"end_date"];
+    }
+    
     if (updatedDate) {
         [params setObject:[[NSDateFormatter iec958Formatter] stringFromDate:updatedDate] forKey:@"updated_after"];
     }
@@ -133,7 +139,8 @@
     [request setMethod:kGET];
     
     NSDictionary *response = (NSDictionary *)[request start:error];
-
+    DLog(@"Read Response: %@", response);
+    
     int page = [[response objectForKey:@"page"] intValue];
     int per_page = [[response objectForKey:@"per_page"] intValue];
     int pages = [[response objectForKey:@"pages"] intValue];

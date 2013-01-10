@@ -31,7 +31,7 @@
     [MHQuery queryUserDataForFields:[NSArray arrayWithObject:@"Weight"] fromDate:[NSDate dateWithTimeIntervalSinceNow:-30*24*60*60] toDate:[NSDate date] inBackgroundWithBlock:^(NSArray *user_data, NSError *error) {
         self.user_data = user_data;
     
-        dispatch_async(dispatch_get_main_queue(), ^(void){
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
             [self.tableView reloadData];
         });
     }];
