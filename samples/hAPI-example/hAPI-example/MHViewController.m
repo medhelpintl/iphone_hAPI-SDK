@@ -9,9 +9,6 @@
 #import "MHViewController.h"
 
 #import "MedHelp.h"
-#import "MHLoginClient.h"
-#import "MHHealthData.h"
-#import "MHQuery.h"
 
 #import "MHMasterController.h"
 
@@ -71,6 +68,8 @@
     [self.view endEditing:YES];
     
     float weight = [self.updateWeightTextField.text floatValue];
+    [self.updateWeightTextField setText:@""];
+    
     [self.weight setValue:[NSNumber numberWithFloat:weight]];
     [self.weight saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -86,6 +85,8 @@
     [self.view endEditing:YES];
     
     float weight = [self.addWeightTextField.text floatValue];
+    [self.addWeightTextField setText:@""];
+    
     MHHealthData *newWeight = [[MHHealthData alloc] initWithFieldName:@"Weight" forValue:[NSNumber numberWithFloat:weight]];
     [newWeight saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {

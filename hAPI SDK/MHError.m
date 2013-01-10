@@ -32,4 +32,9 @@
     return [MHError errorWithDomain:kMHErrorDomain code:kNoToken userInfo:nil];
 }
 
++ (MHError*) errorWithCode:(int)code userInfo:(NSDictionary *)userInfo
+{
+    return [MHError errorWithDomain:kMHErrorDomain code:code userInfo:userInfo];
+}
+
 @end

@@ -22,4 +22,6 @@ enum MHRequestError {
 + (MHError*) invalidTokenError;
 + (MHError*) noTokenError;
 
++ (MHError*) errorWithCode:(int)code userInfo:(NSDictionary*)userInfo;
+
 @end

@@ -10,7 +10,8 @@
 
 #import "MHViewController.h"
 #import "MHMasterController.h"
-#import "MHLoginClient.h"
+
+#import "MedHelp.h"
 
 @implementation MHAppDelegate
 

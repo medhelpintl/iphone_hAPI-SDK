@@ -8,7 +8,6 @@
 
 #import "MHLoginViewController.h"
 
-#import "MHLoginClient.h"
 #import "MedHelp.h"
 
 #import "MHMasterController.h"
