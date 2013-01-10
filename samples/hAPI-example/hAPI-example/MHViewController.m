@@ -36,6 +36,9 @@
     [self getWeight];
 }
 
+#pragma mark -
+#pragma mark WEIGHT
+
 - (void) getWeight
 {
     [MHQuery getLatestUserData:@"Weight" inBackgroundWithBlock:^(MHHealthData *user_data, NSError *error){
@@ -47,12 +50,10 @@
     }];
 }
 
-#pragma mark -
-#pragma mark WEIGHT
-
 - (void) updateUI
 {
     self.updateWeightTextField.text = @"";
+    self.addWeightTextField.text = @"";
 
     if (self.weight) {
         //
@@ -72,13 +73,13 @@
     [self.view endEditing:YES];
     
     float weight = [self.updateWeightTextField.text floatValue];
-    [self.updateWeightTextField setText:@""];
     
     [self.weight setValue:[NSNumber numberWithFloat:weight]];
     [self.weight saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [self getWeight];
         } else {
+            // Pop up
             [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Update Weight" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil] show];
         }
     }];
@@ -89,13 +90,13 @@
     [self.view endEditing:YES];
     
     float weight = [self.addWeightTextField.text floatValue];
-    [self.addWeightTextField setText:@""];
     
     MHHealthData *newWeight = [[MHHealthData alloc] initWithFieldName:@"Weight" forValue:[NSNumber numberWithFloat:weight]];
     [newWeight saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [self getWeight];
         } else {
+            // Pop up
             [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Save Weight" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil] show];
         }
     }];
@@ -122,7 +123,8 @@
         if (error == nil) {
             [[MHMasterController sharedMasterControl] login];
         } else {
-            // POp up
+            // Pop up
+            [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Logout" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles: nil] show];
         }
     }];
 }
