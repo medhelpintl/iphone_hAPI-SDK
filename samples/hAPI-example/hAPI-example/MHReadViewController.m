@@ -18,6 +18,17 @@
 
 #pragma mark VIEW LIFECYCLE
 
+- (void) viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.tableView setBackgroundView:nil];
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    
+    self.title = @"Weights";
+}
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -50,6 +61,8 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CELL"];
+        [cell.contentView setBackgroundColor:[UIColor whiteColor]];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     }
     
     if (self.user_data) {
@@ -62,6 +75,11 @@
     
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
