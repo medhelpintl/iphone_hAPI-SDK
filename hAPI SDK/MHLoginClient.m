@@ -16,13 +16,10 @@
 - (NSString*) userID
 {
 #warning FISHSTIX
-    return @"2024679";
+//    return @"2024679";
+#warning SOMEONE ELSE
+    return @"641606";
 }
-
-//- (NSString*) accessToken
-//{
-//    return @"BLAH";
-//}
 
 #pragma mark -
 #pragma mark SINGLETON

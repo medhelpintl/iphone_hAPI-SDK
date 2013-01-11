@@ -8,11 +8,10 @@
 
 #import "MHRequest.h"
 
+#import "MedHelp.h"
 #import "MHHTTPClient.h"
-#import "MHLoginClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
-#import "MHError.h"
 
 @interface MHRequest ()
 @property (nonatomic, strong) AFJSONRequestOperation *request;
@@ -74,51 +73,60 @@
     }
     
 // Perform Network Request
+    // Client ID
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:self.params];
+    [params setObject:[MedHelp clientID] forKey:@"client_id"];
+    
     DLog(@"EndPoint: %@", self.endPoint);
     DLog(@"Method: %@", self.httpMethod);
     DLog(@"Body: %@", self.body);
-    DLog(@"Params: %@", self.params);
+    DLog(@"Params: %@", params);
     
     __block id json = nil;
-    __block NSError *error_ = nil;
+    __block NSError *error_success = nil;
+    __block NSError *error_fail = nil;
     
     // Single Threaded Semaphore
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
     
     // Method, Endpoint, Params
-    NSMutableURLRequest *urlRequest = [[MHHTTPClient sharedInstance] requestWithMethod:self.httpMethod path:self.endPoint parameters:self.params];
+    NSMutableURLRequest *urlRequest = [[MHHTTPClient sharedInstance] requestWithMethod:self.httpMethod path:self.endPoint parameters:params];
     [urlRequest setHTTPBody:[self.body dataUsingEncoding:NSUTF8StringEncoding]];
     
     DLog(@"URL: %@", urlRequest.URL.absoluteString);
     
     AFJSONRequestOperation *httpRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        DLog(@"JSON SUCCESS");
-        DLog(@"JSON: %@", JSON);
         
         int status_code = [[JSON valueForKeyPath:@"status_code"] intValue];
-        NSString *data = [JSON valueForKeyPath:@"data"];
+        id data = [JSON valueForKeyPath:@"data"];
         
-        DLog(@"Status: %i", status_code);
-        DLog(@"Data: %@", data);
+        // Switch on status_code
+        switch (status_code) {
+            case 0:
+                json = data;
+                break;
+            default:
+                // Error
+                error_success = [MHError errorWithDomain:@"MedHelp" code:status_code userInfo:[NSDictionary dictionaryWithObject:data forKey:@"data"]];
+                break;
+        }
         
         dispatch_semaphore_signal(sema);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-    
-        DLog(@"JSON FAILURE");
-        DLog(@"ERROR: %@", error);
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error_, id JSON) {
+        error_fail = error_;
         
         dispatch_semaphore_signal(sema);
     }];
 
-    DLog(@"Class: %@", NSStringFromClass([httpRequest class]));
     [[MHHTTPClient sharedInstance] enqueueHTTPRequestOperation:httpRequest];
-    [httpRequest start];
 
     dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
     
     // Set Error
-    if (error_) { // Networking Error
-        *error = [MHError serverNotAvailableError];
+    if (error_fail) { // Networking Error
+        *error = [MHError serverNotAvailableErrorWithUserInfo:error_fail.userInfo];
+    } else { // hAPI Error
+        *error = error_success;
     }
     
     return json;

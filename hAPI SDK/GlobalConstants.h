@@ -20,6 +20,3 @@ typedef void (^MHArrayResultBlock)(NSArray *user_data, NSError *error);
 typedef void (^MHErrorBlock)(NSError *error);
 
 #endif
-
-
-//#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_ 1

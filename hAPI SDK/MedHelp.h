@@ -9,8 +9,20 @@
 #import <Foundation/Foundation.h>
 
 #import "GlobalConstants.h"
-#import "NSDate+hAPI.h"
+
+#import "MHLoginClient.h"
+#import "MHOAuthManager.h"
+
+#import "MHObject.h"
+#import "MHHealthData.h"
+#import "MHQuery.h"
+#import "MHBatch.h"
+
+#import "MHError.h"
 
 @interface MedHelp : NSObject
 + (void) startWithClientID:(NSString*)clientID clientSecret:(NSString*)clientSecret;
++ (void) startWithClientID:(NSString*) clientID andSecret:(NSString*)secret;
++ (NSString*) clientID;
++ (NSString*) secret;
 @end

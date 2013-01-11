@@ -10,4 +10,7 @@
 
 @interface NSDateFormatter (hAPI)
 
++ (NSDateFormatter*) hAPIDateFormatter;
++ (NSDateFormatter*) iec958Formatter;
+
 @end

@@ -34,5 +34,4 @@ static NSString* clientSecret_ = NULL;
 {
     return clientSecret_;
 }
-
 @end

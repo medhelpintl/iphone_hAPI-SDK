@@ -10,6 +10,7 @@
 
 enum MHRequestError {
     kNetworkNotAvailable = 1,
+    kServerError,
     kServerNotAvailable,
     kInvalidToken,
     kNoToken // not logged in
@@ -19,7 +20,12 @@ enum MHRequestError {
 
 + (MHError*) networkNotAvailableError;
 + (MHError*) serverNotAvailableError;
++ (MHError*) serverNotAvailableErrorWithUserInfo:(NSDictionary*) userInfo;
++ (MHError*) serverError;
++ (MHError*) serverErrorWithUserInfo:(NSDictionary*) userInfo;
 + (MHError*) invalidTokenError;
 + (MHError*) noTokenError;
+
++ (MHError*) errorWithCode:(int)code userInfo:(NSDictionary*)userInfo;
 
 @end

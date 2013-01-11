@@ -30,6 +30,27 @@
     });
 }
 
++ (MHHealthData*) getLatestUserData:(NSString *)field_name
+{
+    NSError *error = nil;
+    NSArray *user_data = [[MHAPIClient sharedAPIClient] read:[NSArray arrayWithObject:field_name] :nil :nil :nil :&error];
+    
+    if (user_data.count > 0) {
+        return  [user_data lastObject];
+    } else {
+        return nil;
+    }
+}
+
++ (void) getLatestUserData:(NSString *)field_name inBackgroundWithBlock:(MHHealthDataResultBlock)block
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^(void){
+        NSError *error = nil;
+        MHHealthData *user_data = [MHQuery getLatestUserData:field_name];
+        block(user_data, error);
+    });
+}
+
 #pragma mark -
 #pragma mark ARRAY
 

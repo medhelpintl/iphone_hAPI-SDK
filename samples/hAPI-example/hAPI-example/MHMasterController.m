@@ -34,6 +34,12 @@
         self.loginController = [[MHLoginViewController alloc] initWithNibName:@"MHLoginViewController" bundle:nil];
 
         self.homeNavController = [[UINavigationController alloc] initWithRootViewController:self.homeNavController];
+        // Color
+        [self.homeNavController.navigationBar setTintColor:[UIColor blackColor]];
+        // Logo
+        UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"medHelp_loading_grey"]];
+        [logo setFrame:CGRectMake(self.homeNavController.view.frame.size.width - 20, self.homeNavController.view.frame.size.height - 20, 15, 15)];
+        [self.homeNavController.view addSubview:logo];
     }
     return self;
 }

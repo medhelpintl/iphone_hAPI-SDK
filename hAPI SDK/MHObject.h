@@ -22,12 +22,11 @@
 - (void)destroyInBackgroundWithBlock:(MHBooleanResultBlock)block;
 
 
-@property (nonatomic, strong) NSString *uniqueId;
+@property (nonatomic, readonly) NSString *uniqueId;
 @property (nonatomic, strong) NSString *clientId;
 @property (nonatomic, readonly) BOOL deleted;
 
 // HELPER
-@property (nonatomic, readonly) NSMutableDictionary *data;
 - (NSDictionary*) getAsDictionary;
 // INIT
 - (id) initWithDictionary:(NSDictionary*)data;

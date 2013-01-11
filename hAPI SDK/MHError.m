@@ -17,9 +17,24 @@
     return [MHError errorWithDomain:kMHErrorDomain code:kNetworkNotAvailable userInfo:nil];
 }
 
++ (MHError*) serverError
+{
+    return [MHError serverErrorWithUserInfo:nil];
+}
+
++ (MHError*) serverErrorWithUserInfo:(NSDictionary *)userInfo
+{
+    return [MHError errorWithDomain:kMHErrorDomain code:kServerError userInfo:userInfo];
+}
+
 + (MHError*) serverNotAvailableError
 {
-    return [MHError errorWithDomain:kMHErrorDomain code:kServerNotAvailable userInfo:nil];
+    return [MHError serverNotAvailableErrorWithUserInfo:nil];
+}
+
++ (MHError*) serverNotAvailableErrorWithUserInfo:(NSDictionary *)userInfo
+{
+    return [MHError errorWithDomain:kMHErrorDomain code:kServerNotAvailable userInfo:userInfo];
 }
 
 + (MHError*) invalidTokenError
@@ -30,6 +45,11 @@
 + (MHError*) noTokenError
 {
     return [MHError errorWithDomain:kMHErrorDomain code:kNoToken userInfo:nil];
+}
+
++ (MHError*) errorWithCode:(int)code userInfo:(NSDictionary *)userInfo
+{
+    return [MHError errorWithDomain:kMHErrorDomain code:code userInfo:userInfo];
 }
 
 @end

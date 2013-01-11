@@ -8,7 +8,6 @@
 
 #import "MHLoginViewController.h"
 
-#import "MHLoginClient.h"
 #import "MedHelp.h"
 
 #import "MHMasterController.h"
@@ -26,6 +25,7 @@
             [[MHMasterController sharedMasterControl] home];
         } else {
             // Pop up
+            [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Unsuccessful Login" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles: nil] show];
         }
     }];
 }

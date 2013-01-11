@@ -9,6 +9,7 @@
 #import "MHHealthData.h"
 #import "MHAPIClient.h"
 #import "NSDate+hAPI.h"
+#import "NSDateFormatter+hAPI.h"
 
 #define kUserID @"user_id"
 #define kRelativeID @"relative_id"
@@ -21,11 +22,11 @@
 #define kImmutable @"immutable"
 
 @interface MHHealthData()
+@property (nonatomic, strong) NSMutableDictionary *data;
+
+@property (nonatomic, readwrite, strong) NSString *relativeId;
 @property (nonatomic, readwrite, strong) NSDate *created_at;
 @property (nonatomic, readwrite, assign) BOOL immutable;
-
-+ (NSDateFormatter*) dateFormatter;
-+ (NSDateFormatter*) timeFormatter;
 @end
 
 @implementation MHHealthData
@@ -40,31 +41,6 @@
 @dynamic immutable;
 
 #pragma mark -
-#pragma mark DATE FORMATTER
-
-+ (NSDateFormatter*) dateFormatter
-{
-    static NSDateFormatter *__dateFormat;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        __dateFormat = [[NSDateFormatter alloc] init];
-        [__dateFormat setDateFormat:@"MM-dd-yyyy"];
-    });
-    return __dateFormat;
-}
-
-+ (NSDateFormatter*) timeFormatter
-{
-    static NSDateFormatter *__timeFormat;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        __timeFormat = [[NSDateFormatter alloc] init];
-        [__timeFormat setDateFormat:@"hh:mm:ss"];
-    });
-    return __timeFormat;
-}
-
-#pragma mark -
 #pragma mark PROPERTIES
 
 - (NSString*) userId
@@ -77,6 +53,11 @@
     return [self valueForKey:kRelativeID];
 }
 
+- (void) setRelativeId:(NSString *)relativeId
+{
+    [self.date setValue:relativeId forKey:kRelativeID];
+}
+
 - (NSString*) date
 {
     return [self valueForKey:kDate];
@@ -84,7 +65,7 @@
 
 - (void) setDateWithNSDate:(NSDate *)date
 {
-    [self setDate:[[MHHealthData dateFormatter] stringFromDate:date]];
+    [self setDate:[[NSDateFormatter hAPIDateFormatter] stringFromDate:date]];
 }
 
 - (void) setDate:(NSString *)date
@@ -109,7 +90,7 @@
 - (NSDate*) getTimeAsNSDate
 {
     int timeSinceMidnight = [self time];
-    NSDate *date = [[MHHealthData dateFormatter] dateFromString:self.date];
+    NSDate *date = [[NSDateFormatter hAPIDateFormatter] dateFromString:self.date];
     
     return [date dateByAddingTimeInterval:timeSinceMidnight];
 }
@@ -175,7 +156,6 @@
 #pragma mark -
 #pragma mark INIT
 
-
 - (id)init
 {
     if (self = [super init]) {
@@ -189,17 +169,30 @@
 }
 
 - (id)initWithFieldName:(NSString*)fieldName forValue:(id)value {
-    if (self = [self init]) {
-        self.field_name = fieldName;
-        self.value = value;
+    if (self = [self initWithFieldName:fieldName forValue:value andDate:[NSDate date]]) {
     }
     return self;
 }
 
-+ (MHHealthData*)healthDataWithId:(NSString*)uniqueId
+- (id) initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date
 {
-#warning Query?
-    return [[MHHealthData alloc] initWithID:uniqueId];
+    if (self = [self initWithFieldName:fieldName forValue:value andDate:date andRelativeID:nil]) {
+        //
+    }
+    return self;
+}
+
+- (id) initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date andRelativeID:(NSString *)relativeId
+{
+    if (self = [self init]) {
+        //
+        self.field_name = fieldName;
+        self.value = value;
+        [self setDateWithNSDate:date];
+        [self setTimeWithNSDate:date];
+        self.relativeId = relativeId;
+    }
+    return self;
 }
 
 @end
