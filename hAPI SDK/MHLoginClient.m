@@ -7,7 +7,7 @@
 //
 
 #import "MHLoginClient.h"
-
+#import "MHOAuthManager.h"
 @implementation MHLoginClient
 
 #pragma mark -
@@ -46,8 +46,7 @@
 
 - (void) login:(MHErrorBlock)completionBlock
 {
-    self.accessToken = @"12345";
-    
+    [[MHOAuthManager sharedAuthManager] login];
     completionBlock(nil);
 }
 

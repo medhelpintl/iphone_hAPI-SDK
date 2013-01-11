@@ -47,8 +47,8 @@
         [[MHOAuthManager sharedAuthManager] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueChangeReplacement context:NULL];
         
         [self.operationQueue setMaxConcurrentOperationCount:1];
-        
-        [self setDefaultHeader:@"appID" value:[MedHelp appID]];
+        [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Token token=%@",[self accessToken]]];
+//        [self setDefaultHeader:@"clientID" value:[MedHelp clientID]];
         [self setDefaultHeader:@"Content-Type" value:@"text/json"];
         
 #ifdef _SYSTEMCONFIGURATION_H

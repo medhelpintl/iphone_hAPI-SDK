@@ -10,10 +10,9 @@
 
 @interface MHOAuthManager : NSObject
 @property (nonatomic, strong) NSString *accessToken;
-
 + (MHOAuthManager *)sharedAuthManager;
 
 // Take in a completion block
-- (void)login:(NSString*)clientID :(NSString*)appURLScheme;
-
+- (void)login;
+- (void)loadCallBackURL:(NSURL*)callbackURL;
 @end

@@ -42,6 +42,7 @@
 		23304B8E167946D200705054 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 23304B7C167946D200705054 /* UIImageView+AFNetworking.m */; };
 		23A2299C16692412003B3688 /* MHObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299B16692412003B3688 /* MHObject.m */; };
 		23A2299F166932D5003B3688 /* MHHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A2299E166932D5003B3688 /* MHHTTPClient.m */; };
+		23FB3994169F59390005A12A /* MHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FB3993169F59390005A12A /* MHUtil.m */; };
 		722D7C1E167FF64800FB598E /* MHAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 722D7C1D167FF64800FB598E /* MHAPIClient.m */; };
 		7268BEE81697D1AF0070FAA1 /* MedHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEE71697D1AF0070FAA1 /* MedHelp.m */; };
 		7268BEEC1697D2220070FAA1 /* MHLoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BEEB1697D2220070FAA1 /* MHLoginClient.m */; };
@@ -108,6 +109,8 @@
 		23A2299B16692412003B3688 /* MHObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHObject.m; sourceTree = "<group>"; };
 		23A2299D166932D5003B3688 /* MHHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHHTTPClient.h; sourceTree = "<group>"; };
 		23A2299E166932D5003B3688 /* MHHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHHTTPClient.m; sourceTree = "<group>"; };
+		23FB3992169F59390005A12A /* MHUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHUtil.h; sourceTree = "<group>"; };
+		23FB3993169F59390005A12A /* MHUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHUtil.m; sourceTree = "<group>"; };
 		722D7C1C167FF64800FB598E /* MHAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAPIClient.h; sourceTree = "<group>"; };
 		722D7C1D167FF64800FB598E /* MHAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAPIClient.m; sourceTree = "<group>"; };
 		7268BEE61697D1AF0070FAA1 /* MedHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedHelp.h; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		23304ADB1665AFDA00705054 = {
 			isa = PBXGroup;
 			children = (
+				23FB3991169F592D0005A12A /* Util */,
 				7268BF7F169D077E0070FAA1 /* Extensions */,
 				7268BEF3169B63410070FAA1 /* Reachability */,
 				23304B69167946D200705054 /* AFNetworking */,
@@ -259,6 +263,15 @@
 				23304B7C167946D200705054 /* UIImageView+AFNetworking.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		23FB3991169F592D0005A12A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				23FB3992169F59390005A12A /* MHUtil.h */,
+				23FB3993169F59390005A12A /* MHUtil.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		722D7C20167FF89500FB598E /* Data */ = {
@@ -453,6 +466,7 @@
 				7268BEF6169B63410070FAA1 /* Reachability.m in Sources */,
 				7268BF4A169C9FD10070FAA1 /* MHError.m in Sources */,
 				7268BF82169D079E0070FAA1 /* NSDate+hAPI.m in Sources */,
+				23FB3994169F59390005A12A /* MHUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

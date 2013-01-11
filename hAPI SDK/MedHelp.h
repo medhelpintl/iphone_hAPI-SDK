@@ -12,6 +12,5 @@
 #import "NSDate+hAPI.h"
 
 @interface MedHelp : NSObject
-+ (void) startWithAppID:(NSString*) appID;
-+ (NSString*) appID;
++ (void) startWithClientID:(NSString*)clientID clientSecret:(NSString*)clientSecret;
 @end

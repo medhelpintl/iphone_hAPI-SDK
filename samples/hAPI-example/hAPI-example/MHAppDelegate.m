@@ -7,11 +7,11 @@
 //
 
 #import "MHAppDelegate.h"
-
+#import "MedHelp.h"
 #import "MHViewController.h"
 #import "MHMasterController.h"
 #import "MHLoginClient.h"
-
+#import "MHOAuthManager.h"
 @implementation MHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -22,11 +22,21 @@
 //    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
+    [MedHelp startWithClientID:@"hd42sRGKw5f5bAYEWAiiyyKTfwIh8X77" clientSecret:@"Dvi6xFlbUlziGgk1"];
+    
     [[MHMasterController sharedMasterControl] home];
     if (![[MHLoginClient sharedLoginClient] isLoggedIn]) {
         [[MHMasterController sharedMasterControl] login];
     }
     
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [[MHOAuthManager sharedAuthManager] loadCallBackURL:url];
+    NSLog(@"openURL %@",[url absoluteString]);
+    NSLog(@"sourceApplication %@", sourceApplication);
     return YES;
 }
 

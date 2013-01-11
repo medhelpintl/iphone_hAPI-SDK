@@ -8,18 +8,31 @@
 
 #import "MedHelp.h"
 
+@interface MedHelp ()
++ (NSString*) clientID;
++ (NSString*) clientSecret;
+@end
+
 @implementation MedHelp
 
-static NSString* appID_ = NULL;
+static NSString* clientID_ = NULL;
+static NSString* clientSecret_ = NULL;
 
-+ (void) startWithAppID:(NSString *)appID
++ (void) startWithClientID:(NSString*)clientID clientSecret:(NSString*)clientSecret;
 {
-    appID_ = appID;
+    clientID_ = clientID;
+    clientSecret_ = clientSecret;
 }
 
-+ (NSString*) appID
++ (NSString*)clientID
 {
-    return appID_;
+    return clientID_;
+}
+
+
++ (NSString*)clientSecret
+{
+    return clientSecret_;
 }
 
 @end
