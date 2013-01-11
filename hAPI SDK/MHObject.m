@@ -117,20 +117,6 @@
 #pragma mark -
 #pragma mark SAVE
 
-// to be moved....
-+ (BOOL) saveAll:(NSArray *)user_data
-{
-    NSError *error = nil;
-    NSArray *update_user_data = [NSArray array];
-    NSArray *create_user_data = [NSArray array];
-    
-    // Check Create vs. Update
-    [[MHAPIClient sharedAPIClient] update:update_user_data :&error];
-    [[MHAPIClient sharedAPIClient] create:create_user_data :&error];
-    
-    return error == nil;
-}
-
 - (BOOL)save:(NSError**)error {
     if (self.uniqueId) {
         [[MHAPIClient sharedAPIClient] update:[NSArray arrayWithObject:self] :error];
