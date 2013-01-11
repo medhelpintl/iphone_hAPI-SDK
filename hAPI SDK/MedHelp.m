@@ -10,16 +10,16 @@
 
 @implementation MedHelp
 
-static NSString* appID_ = NULL;
+static NSString* clientID_ = NULL;
 
-+ (void) startWithAppID:(NSString *)appID
++ (void) startWithClientID:(NSString *)clientID andSecret:(NSString *)secret
 {
-    appID_ = appID;
+    clientID_ = clientID;
 }
 
-+ (NSString*) appID
++ (NSString*) clientID
 {
-    return appID_;
+    return clientID_;
 }
 
 @end

@@ -22,6 +22,8 @@
 #define kImmutable @"immutable"
 
 @interface MHHealthData()
+@property (nonatomic, strong) NSMutableDictionary *data;
+
 @property (nonatomic, readwrite, strong) NSDate *created_at;
 @property (nonatomic, readwrite, assign) BOOL immutable;
 @end
@@ -148,7 +150,6 @@
 #pragma mark -
 #pragma mark INIT
 
-
 - (id)init
 {
     if (self = [super init]) {
@@ -169,10 +170,14 @@
     return self;
 }
 
-+ (MHHealthData*)healthDataWithId:(NSString*)uniqueId
+- (id) initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date
 {
-#warning Query?
-    return [[MHHealthData alloc] initWithID:uniqueId];
+    
+}
+
+- (id) initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date andRelativeID:(NSString *)relativeId
+{
+    
 }
 
 @end

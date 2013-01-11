@@ -12,6 +12,11 @@
 
 #import "MHRequest.h"
 #import "MHLoginClient.h"
+#import "MHError.h"
+
+@interface MHObject (Private)
+@property (nonatomic, strong) NSString *uniqueId;
+@end
 
 @implementation MHAPIClient
 
@@ -56,12 +61,14 @@
 // Perform Request
     MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
     [request setMethod:kPOST];
-    [request setBody:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:json_user_data options:NSJSONWritingPrettyPrinted error:nil] encoding:NSUTF8StringEncoding]];
+    [request setBody:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:json_user_data options:0 error:nil] encoding:NSUTF8StringEncoding]];
     NSArray *response = (NSArray *)[request start:error];
 
     DLog(@"Response: %@", response);
         
 // Manage Response
+    NSMutableDictionary *errorDict = [NSMutableDictionary dictionary];
+    
     for (int i = 0; i < response.count; i++) {
         NSDictionary *response_obj = [response objectAtIndex:i];
         MHObject *obj = [user_data objectAtIndex:i];
@@ -75,13 +82,15 @@
         if (error) {
             //
 #warning Handle Error
+            // Add Error To Dict
+            [errorDict setObject:error forKey:[NSString stringWithFormat:@"user_data%i", i]];
         } else {
             [obj setUniqueId:identifier];
-            
-            DLog(@"New Obj: %@", obj.data);
         }
         
     }
+
+    *error = [MHError serverErrorWithUserInfo:errorDict];
 }
 
 - (void) update:(NSArray*) user_data :(NSError *__autoreleasing *)error
@@ -91,7 +100,7 @@
 // Convert to JSON Array
     NSMutableArray *json_user_data = [NSMutableArray array];
     for (MHObject *obj in user_data) {
-        [json_user_data addObject:obj.data];
+        [json_user_data addObject:[obj getAsDictionary]];
     }
     
     DLog(@"JSON: %@", json_user_data);
@@ -113,7 +122,7 @@
         
         DLog(@"%@, %i, %@, %@", identifier, ignored, error, clientID);
         
-        [obj setUniqueId:identifier];
+//        [obj setUniqueId:identifier];
     }
 
 }
@@ -192,17 +201,18 @@
 
 - (MHHealthData*) read:(NSString *)identifier :(NSError *__autoreleasing *)error
 {
+#warning TODO
     return nil;
 }
 
 // delete
-- (void) destroy:(NSArray *)user_data :(NSError *__autoreleasing *)error
+- (void)destroy:(NSArray *)user_data :(NSError *__autoreleasing *)error
 {
     DLog(@"Destroy: %@", user_data);
 // Convert to JSON Array
     NSMutableArray *json_user_data = [NSMutableArray array];
     for (MHObject *obj in user_data) {
-        [json_user_data addObject:obj.data];
+        [json_user_data addObject:obj.uniqueId];
     }
 
 // Perform Request

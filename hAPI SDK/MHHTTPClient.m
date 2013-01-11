@@ -48,7 +48,6 @@
         
         [self.operationQueue setMaxConcurrentOperationCount:1];
         
-        [self setDefaultHeader:@"appID" value:[MedHelp appID]];
         [self setDefaultHeader:@"Content-Type" value:@"text/json"];
         
 #ifdef _SYSTEMCONFIGURATION_H

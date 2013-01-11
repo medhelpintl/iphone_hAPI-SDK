@@ -9,14 +9,20 @@
 #import "MHObject.h"
 
 @interface MHHealthData : MHObject
+
+// Defaults to Now
 - (id)initWithFieldName:(NSString*)fieldName forValue:(id)value;
+
+- (id)initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate*)date;
+- (id)initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date andRelativeID:(NSString*)relativeId;
+
 + (MHHealthData*)healthDataWithId:(NSString*)uniqueId;
 
-@property (nonatomic, strong) NSString *userId;
-@property (nonatomic, strong) NSString *relativeId;
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, readonly) NSString *userId;
+@property (nonatomic, readonly) NSString *relativeId;
+@property (nonatomic, readonly) NSString *date;
 @property (nonatomic, assign) NSInteger time;
-@property (nonatomic, strong) NSString *field_name;
+@property (nonatomic, readonly) NSString *field_name;
 @property (nonatomic, weak) id value;
 @property (nonatomic, readonly) NSDate *updated_at;
 @property (nonatomic, readonly) NSDate *created_at;

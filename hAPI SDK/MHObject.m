@@ -35,6 +35,9 @@
 
 - (void) setUniqueId:(NSString *)uniqueId
 {
+    if (self.uniqueId) {
+        @throw @"ID Already Set";
+    }
     [self.data setObject:uniqueId forKey:kUniqueID];
 }
 

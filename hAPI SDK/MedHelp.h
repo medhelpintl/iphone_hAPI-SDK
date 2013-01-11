@@ -26,6 +26,7 @@
 #import "MHError.h"
 
 @interface MedHelp : NSObject
-+ (void) startWithAppID:(NSString*) appID;
-+ (NSString*) appID;
++ (void) startWithClientID:(NSString*) clientID andSecret:(NSString*)secret;
++ (NSString*) clientID;
++ (NSString*) secret;
 @end

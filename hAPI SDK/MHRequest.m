@@ -74,7 +74,7 @@
 // Perform Network Request
     // Client ID
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:self.params];
-    [params setObject:[MedHelp appID] forKey:@"client_id"];
+    [params setObject:[MedHelp clientID] forKey:@"client_id"];
     
     DLog(@"EndPoint: %@", self.endPoint);
     DLog(@"Method: %@", self.httpMethod);
@@ -97,7 +97,7 @@
     AFJSONRequestOperation *httpRequest = [AFJSONRequestOperation JSONRequestOperationWithRequest:urlRequest success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         int status_code = [[JSON valueForKeyPath:@"status_code"] intValue];
-        NSString *data = [JSON valueForKeyPath:@"data"];
+        id data = [JSON valueForKeyPath:@"data"];
         
         // Switch on status_code
         switch (status_code) {

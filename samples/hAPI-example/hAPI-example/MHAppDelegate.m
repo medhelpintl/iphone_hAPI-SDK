@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Initialize MedHelp with your App ID
-    [MedHelp startWithAppID:@"MH1234"];
+    [MedHelp startWithClientID:@"MH1234" andSecret:@"ssshhhh, it's a secret"];
     
     // Not the best way for initializing the window...
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
