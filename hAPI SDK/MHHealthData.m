@@ -24,6 +24,7 @@
 @interface MHHealthData()
 @property (nonatomic, strong) NSMutableDictionary *data;
 
+@property (nonatomic, readwrite, strong) NSString *relativeId;
 @property (nonatomic, readwrite, strong) NSDate *created_at;
 @property (nonatomic, readwrite, assign) BOOL immutable;
 @end
@@ -50,6 +51,11 @@
 - (NSString*) relativeId
 {
     return [self valueForKey:kRelativeID];
+}
+
+- (void) setRelativeId:(NSString *)relativeId
+{
+    [self.date setValue:relativeId forKey:kRelativeID];
 }
 
 - (NSString*) date
@@ -163,21 +169,30 @@
 }
 
 - (id)initWithFieldName:(NSString*)fieldName forValue:(id)value {
-    if (self = [self init]) {
-        self.field_name = fieldName;
-        self.value = value;
+    if (self = [self initWithFieldName:fieldName forValue:value andDate:[NSDate date]]) {
     }
     return self;
 }
 
 - (id) initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date
 {
-    
+    if (self = [self initWithFieldName:fieldName forValue:value andDate:date andRelativeID:nil]) {
+        //
+    }
+    return self;
 }
 
 - (id) initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date andRelativeID:(NSString *)relativeId
 {
-    
+    if (self = [self init]) {
+        //
+        self.field_name = fieldName;
+        self.value = value;
+        [self setDateWithNSDate:date];
+        [self setTimeWithNSDate:date];
+        self.relativeId = relativeId;
+    }
+    return self;
 }
 
 @end

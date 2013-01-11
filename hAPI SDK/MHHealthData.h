@@ -16,8 +16,6 @@
 - (id)initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate*)date;
 - (id)initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date andRelativeID:(NSString*)relativeId;
 
-+ (MHHealthData*)healthDataWithId:(NSString*)uniqueId;
-
 @property (nonatomic, readonly) NSString *userId;
 @property (nonatomic, readonly) NSString *relativeId;
 @property (nonatomic, readonly) NSString *date;
@@ -32,7 +30,5 @@
 - (void) setDateWithNSDate:(NSDate*)date;
 - (void) setTimeWithNSDate:(NSDate*)time;
 - (NSDate*) getTimeAsNSDate;
-
-+ (NSArray*)queryWithUserId:(NSString*)userId forFields:(NSArray*)fieldNames fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
 
 @end

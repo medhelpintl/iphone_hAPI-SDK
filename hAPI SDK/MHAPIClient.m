@@ -14,6 +14,8 @@
 #import "MHLoginClient.h"
 #import "MHError.h"
 
+#define kPerPage @1
+
 @interface MHObject (Private)
 @property (nonatomic, strong) NSString *uniqueId;
 @end
@@ -65,7 +67,7 @@
     NSArray *response = (NSArray *)[request start:error];
 
     DLog(@"Response: %@", response);
-        
+    
 // Manage Response
     NSMutableDictionary *errorDict = [NSMutableDictionary dictionary];
     
@@ -111,9 +113,10 @@
     NSArray *response = (NSArray *)[request start:error];
     
 // Manage Response
+    NSMutableDictionary *errorDict = [NSMutableDictionary dictionary];
+    
     for (int i = 0; i < response.count; i++) {
         NSDictionary *response_obj = [response objectAtIndex:i];
-        MHObject *obj = [user_data objectAtIndex:i];
         
         NSString *identifier = [response_obj objectForKey:@"id"];
         BOOL ignored = [[response_obj objectForKey:@"ignored"] boolValue];
@@ -121,10 +124,15 @@
         NSString *clientID = [response_obj objectForKey:@"external_id"];
         
         DLog(@"%@, %i, %@, %@", identifier, ignored, error, clientID);
-        
-//        [obj setUniqueId:identifier];
+        if (error) {
+            //
+#warning Handle Error
+            // Add Error To Dict
+            [errorDict setObject:error forKey:[NSString stringWithFormat:@"user_data%i", i]];
+        }
     }
 
+    *error = [MHError serverErrorWithUserInfo:errorDict];
 }
 
 - (NSArray*) read:(NSArray *)field_names :(NSDate *)startDate :(NSDate *)endDate :(NSDate *)updatedDate :(NSError *__autoreleasing *)error
@@ -134,8 +142,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                             [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:field_names options:0 error:nil] encoding:NSUTF8StringEncoding], @"field_names",
                             @1, @"page",
-//                            @100, @"per_page",
-                            @1, @"per_page",
+                            kPerPage, @"per_page",
                             nil];
     if (startDate && endDate) {
         [params setObject:[[NSDateFormatter iec958Formatter] stringFromDate:startDate] forKey:@"start_date"];
@@ -224,7 +231,6 @@
     // Manage Response
     for (int i = 0; i < response.count; i++) {
         NSDictionary *response_obj = [response objectAtIndex:i];
-        MHObject *obj = [user_data objectAtIndex:i];
         
         NSString *identifier = [response_obj objectForKey:@"id"];
         BOOL deleted = [[response_obj objectForKey:@"deleted"] boolValue];
