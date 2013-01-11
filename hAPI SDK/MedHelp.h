@@ -10,18 +10,12 @@
 
 #import "GlobalConstants.h"
 
-#import "NSDate+hAPI.h"
-#import "NSDateFormatter+hAPI.h"
-
-#import "MHAPIClient.h"
-#import "MHRequest.h"
-#import "MHHTTPClient.h"
-
 #import "MHLoginClient.h"
 
 #import "MHObject.h"
 #import "MHHealthData.h"
 #import "MHQuery.h"
+#import "MHBatch.h"
 
 #import "MHError.h"
 

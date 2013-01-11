@@ -9,6 +9,7 @@
 #import "MHRequest.h"
 
 #import "MedHelp.h"
+#import "MHHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
 
