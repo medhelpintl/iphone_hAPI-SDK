@@ -8,7 +8,7 @@
 
 #import "MHViewController.h"
 
-#import "MedHelp.h"
+#import <hAPI SDK/MedHelp.h>
 
 #import "MHMasterController.h"
 

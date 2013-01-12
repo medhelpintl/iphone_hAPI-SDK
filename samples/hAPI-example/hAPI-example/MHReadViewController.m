@@ -8,7 +8,7 @@
 
 #import "MHReadViewController.h"
 
-#import "MedHelp.h"
+#import <hAPI SDK/MedHelp.h>
 
 @interface MHReadViewController ()
 @property (nonatomic, strong) NSArray *user_data;
@@ -39,6 +39,10 @@
     
     // Query Some Data
     [MHQuery queryUserDataForFields:[NSArray arrayWithObject:@"Weight"] fromDate:[NSDate dateWithTimeIntervalSinceNow:-30*24*60*60] toDate:[NSDate date] inBackgroundWithBlock:^(NSArray *user_data, NSError *error) {
+        if (error) {
+            NSLog(@"Read Error: %@", error);
+        }
+        
         self.user_data = user_data;
     
         dispatch_async(dispatch_get_main_queue(), ^(void) {

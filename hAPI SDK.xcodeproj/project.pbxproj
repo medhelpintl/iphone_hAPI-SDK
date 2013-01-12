@@ -52,6 +52,7 @@
 		7268BF82169D079E0070FAA1 /* NSDate+hAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF81169D079E0070FAA1 /* NSDate+hAPI.m */; };
 		7268BF97169E15880070FAA1 /* NSDateFormatter+hAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF96169E15880070FAA1 /* NSDateFormatter+hAPI.m */; };
 		7268BFC7169F89F00070FAA1 /* MHBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BFC6169F89EF0070FAA1 /* MHBatch.m */; };
+		7268BFCA16A0AE9B0070FAA1 /* MHSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BFC916A0AE9B0070FAA1 /* MHSessionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,8 @@
 		7268BF96169E15880070FAA1 /* NSDateFormatter+hAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+hAPI.m"; path = "hAPI SDK/NSDateFormatter+hAPI.m"; sourceTree = "<group>"; };
 		7268BFC5169F89EF0070FAA1 /* MHBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHBatch.h; sourceTree = "<group>"; };
 		7268BFC6169F89EF0070FAA1 /* MHBatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHBatch.m; sourceTree = "<group>"; };
+		7268BFC816A0AE9A0070FAA1 /* MHSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHSessionManager.h; sourceTree = "<group>"; };
+		7268BFC916A0AE9B0070FAA1 /* MHSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHSessionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +292,8 @@
 				23304B201665B05400705054 /* MHOAuthManager.m */,
 				7268BEEA1697D2220070FAA1 /* MHLoginClient.h */,
 				7268BEEB1697D2220070FAA1 /* MHLoginClient.m */,
+				7268BFC816A0AE9A0070FAA1 /* MHSessionManager.h */,
+				7268BFC916A0AE9B0070FAA1 /* MHSessionManager.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				7268BF82169D079E0070FAA1 /* NSDate+hAPI.m in Sources */,
 				7268BF97169E15880070FAA1 /* NSDateFormatter+hAPI.m in Sources */,
 				7268BFC7169F89F00070FAA1 /* MHBatch.m in Sources */,
+				7268BFCA16A0AE9B0070FAA1 /* MHSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

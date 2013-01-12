@@ -11,7 +11,7 @@
 #import "MHViewController.h"
 #import "MHMasterController.h"
 
-#import "MedHelp.h"
+#import <hAPI SDK/MedHelp.h>
 
 @implementation MHAppDelegate
 

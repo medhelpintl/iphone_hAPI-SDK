@@ -18,7 +18,6 @@
 		7268BF21169BA8B40070FAA1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7268BF20169BA8B40070FAA1 /* Default-568h@2x.png */; };
 		7268BF24169BA8B40070FAA1 /* MHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF23169BA8B40070FAA1 /* MHViewController.m */; };
 		7268BF27169BA8B40070FAA1 /* MHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7268BF25169BA8B40070FAA1 /* MHViewController.xib */; };
-		7268BF3A169BEAEC0070FAA1 /* libhAPI SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BF33169BA8CE0070FAA1 /* libhAPI SDK.a */; };
 		7268BF4C169CA27C0070FAA1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BF4B169CA27C0070FAA1 /* SystemConfiguration.framework */; };
 		7268BF86169DF13A0070FAA1 /* MHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7268BF84169DF13A0070FAA1 /* MHLoginViewController.m */; };
 		7268BF87169DF13A0070FAA1 /* MHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7268BF85169DF13A0070FAA1 /* MHLoginViewController.xib */; };
@@ -45,24 +44,8 @@
 		7268BFC2169F42890070FAA1 /* medHelp_loading_color@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7268BFBE169F42880070FAA1 /* medHelp_loading_color@2x.png */; };
 		7268BFC3169F42890070FAA1 /* medHelp_loading_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 7268BFBF169F42880070FAA1 /* medHelp_loading_grey.png */; };
 		7268BFC4169F42890070FAA1 /* medHelp_loading_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7268BFC0169F42890070FAA1 /* medHelp_loading_grey@2x.png */; };
+		7268BFD216A0D1250070FAA1 /* hAPI SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BFD116A0D1250070FAA1 /* hAPI SDK.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7268BF32169BA8CE0070FAA1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7268BF2D169BA8CE0070FAA1 /* hAPI SDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 23304AE61665AFDA00705054;
-			remoteInfo = "hAPI SDK";
-		};
-		7268BF34169BA8CE0070FAA1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7268BF2D169BA8CE0070FAA1 /* hAPI SDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 23304B071665AFDB00705054;
-			remoteInfo = "hAPI SDKTests";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7268BF06169BA8B40070FAA1 /* hAPI-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hAPI-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +64,6 @@
 		7268BF22169BA8B40070FAA1 /* MHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHViewController.h; sourceTree = "<group>"; };
 		7268BF23169BA8B40070FAA1 /* MHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHViewController.m; sourceTree = "<group>"; };
 		7268BF26169BA8B40070FAA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MHViewController.xib; sourceTree = "<group>"; };
-		7268BF2D169BA8CE0070FAA1 /* hAPI SDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "hAPI SDK.xcodeproj"; path = "../../hAPI SDK.xcodeproj"; sourceTree = "<group>"; };
 		7268BF4B169CA27C0070FAA1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7268BF83169DF13A0070FAA1 /* MHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLoginViewController.h; sourceTree = "<group>"; };
 		7268BF84169DF13A0070FAA1 /* MHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHLoginViewController.m; sourceTree = "<group>"; };
@@ -111,6 +93,7 @@
 		7268BFBE169F42880070FAA1 /* medHelp_loading_color@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medHelp_loading_color@2x.png"; sourceTree = "<group>"; };
 		7268BFBF169F42880070FAA1 /* medHelp_loading_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medHelp_loading_grey.png; sourceTree = "<group>"; };
 		7268BFC0169F42890070FAA1 /* medHelp_loading_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medHelp_loading_grey@2x.png"; sourceTree = "<group>"; };
+		7268BFD116A0D1250070FAA1 /* hAPI SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "hAPI SDK.framework"; path = "../../hAPI SDK.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,11 +101,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7268BF3A169BEAEC0070FAA1 /* libhAPI SDK.a in Frameworks */,
 				7268BF0B169BA8B40070FAA1 /* UIKit.framework in Frameworks */,
 				7268BF0D169BA8B40070FAA1 /* Foundation.framework in Frameworks */,
 				7268BF0F169BA8B40070FAA1 /* CoreGraphics.framework in Frameworks */,
 				7268BF4C169CA27C0070FAA1 /* SystemConfiguration.framework in Frameworks */,
+				7268BFD216A0D1250070FAA1 /* hAPI SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +115,6 @@
 		7268BEFB169BA8B40070FAA1 = {
 			isa = PBXGroup;
 			children = (
-				7268BF2D169BA8CE0070FAA1 /* hAPI SDK.xcodeproj */,
 				7268BF10169BA8B40070FAA1 /* hAPI-example */,
 				7268BF09169BA8B40070FAA1 /* Frameworks */,
 				7268BF07169BA8B40070FAA1 /* Products */,
@@ -150,6 +132,7 @@
 		7268BF09169BA8B40070FAA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7268BFD116A0D1250070FAA1 /* hAPI SDK.framework */,
 				7268BF4B169CA27C0070FAA1 /* SystemConfiguration.framework */,
 				7268BF0A169BA8B40070FAA1 /* UIKit.framework */,
 				7268BF0C169BA8B40070FAA1 /* Foundation.framework */,
@@ -182,15 +165,6 @@
 				7268BF20169BA8B40070FAA1 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7268BF2E169BA8CE0070FAA1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7268BF33169BA8CE0070FAA1 /* libhAPI SDK.a */,
-				7268BF35169BA8CE0070FAA1 /* hAPI SDKTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		7268BF88169DF1530070FAA1 /* Control */ = {
@@ -310,35 +284,12 @@
 			mainGroup = 7268BEFB169BA8B40070FAA1;
 			productRefGroup = 7268BF07169BA8B40070FAA1 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 7268BF2E169BA8CE0070FAA1 /* Products */;
-					ProjectRef = 7268BF2D169BA8CE0070FAA1 /* hAPI SDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				7268BF05169BA8B40070FAA1 /* hAPI-example */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		7268BF33169BA8CE0070FAA1 /* libhAPI SDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libhAPI SDK.a";
-			remoteRef = 7268BF32169BA8CE0070FAA1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7268BF35169BA8CE0070FAA1 /* hAPI SDKTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "hAPI SDKTests.octest";
-			remoteRef = 7268BF34169BA8CE0070FAA1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7268BF04169BA8B40070FAA1 /* Resources */ = {
@@ -435,12 +386,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../../**";
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
-					"-ObjC",
 					"-all_load",
+					"-ObjC",
 				);
 				SDKROOT = iphoneos;
 			};
@@ -461,12 +412,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../../**";
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
-					"-ObjC",
 					"-all_load",
+					"-ObjC",
 				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -476,6 +427,10 @@
 		7268BF2B169BA8B40070FAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hAPI-example/hAPI-example-Prefix.pch";
 				INFOPLIST_FILE = "hAPI-example/hAPI-example-Info.plist";
@@ -487,6 +442,10 @@
 		7268BF2C169BA8B40070FAA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../..\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hAPI-example/hAPI-example-Prefix.pch";
 				INFOPLIST_FILE = "hAPI-example/hAPI-example-Info.plist";
