@@ -10,12 +10,12 @@
 
 #import "GlobalConstants.h"
 
-@interface MHLoginClient : NSObject
+@interface MHLoginManager : NSObject
 
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *accessToken;
 
-+ (MHLoginClient*) sharedLoginClient;
++ (MHLoginManager*) sharedLoginClient;
 
 - (void) anonCreate:(MHErrorBlock)completionBlock;
 
@@ -25,6 +25,9 @@
 
 - (void) logout:(MHErrorBlock)completionBlock;
 
+
+
 - (BOOL) isLoggedIn;
+
 
 @end
