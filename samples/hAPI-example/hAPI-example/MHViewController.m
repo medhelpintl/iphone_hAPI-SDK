@@ -119,7 +119,7 @@
 {
     [self.view endEditing:YES];
     
-    [[MHLoginClient sharedLoginClient] logout:^(NSError *error) {
+    [MedHelp logout:^(NSError *error) {
         if (error == nil) {
             [[MHMasterController sharedMasterControl] login];
         } else {

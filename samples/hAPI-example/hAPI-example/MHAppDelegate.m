@@ -7,7 +7,6 @@
 //
 
 #import "MHAppDelegate.h"
-
 #import "MHViewController.h"
 #import "MHMasterController.h"
 
@@ -18,17 +17,27 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Initialize MedHelp with your App ID
-    [MedHelp startWithClientID:@"MH1234" andSecret:@"ssshhhh, it's a secret"];
+    [MedHelp startWithClientID:@"MH1234" clientSecret:@"ssshhhh, it's a secret"];
     
     // Not the best way for initializing the window...
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
+    [MedHelp startWithClientID:@"hd42sRGKw5f5bAYEWAiiyyKTfwIh8X77" clientSecret:@"Dvi6xFlbUlziGgk1"];
+    
     [[MHMasterController sharedMasterControl] home];
-    if (![[MHLoginClient sharedLoginClient] isLoggedIn]) {
+    if (![MedHelp isLoggedIn]) {
         [[MHMasterController sharedMasterControl] login];
     }
     
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [MedHelp loadCallBackURL:url];
+    NSLog(@"openURL %@",[url absoluteString]);
+    NSLog(@"sourceApplication %@", sourceApplication);
     return YES;
 }
 

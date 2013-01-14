@@ -24,6 +24,7 @@
     
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setBackgroundView:nil];
+    [self.tableView setTableHeaderView:[[UIView alloc] initWithFrame:CGRectZero]];
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     
     self.title = @"Weights";
@@ -76,7 +77,6 @@
     } else {
         [cell.textLabel setText:@"Loading..."];
     }
-    
     
     return cell;
 }

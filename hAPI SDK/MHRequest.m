@@ -66,7 +66,7 @@
     }
 #endif
 // Check Logged In
-    if (![[MHLoginClient sharedLoginClient] accessToken]) {
+    if (![[MHLoginManager sharedLoginClient] accessToken]) {
         DLog(@"Not Logged In");
         *error = [MHError noTokenError];
         return nil;

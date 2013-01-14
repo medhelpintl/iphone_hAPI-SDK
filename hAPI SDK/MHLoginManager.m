@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Medhelp International. All rights reserved.
 //
 
-#import "MHLoginClient.h"
-
-@implementation MHLoginClient
+#import "MHLoginManager.h"
+#import "MHOAuthManager.h"
+@implementation MHLoginManager
 
 #pragma mark -
 #pragma mark PROPERTIES
@@ -24,11 +24,11 @@
 #pragma mark -
 #pragma mark SINGLETON
 
-+ (MHLoginClient*) sharedLoginClient {
-    static MHLoginClient *__sharedInstance;
++ (MHLoginManager*) sharedLoginClient {
+    static MHLoginManager *__sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        __sharedInstance = [[MHLoginClient alloc] init];
+        __sharedInstance = [[MHLoginManager alloc] init];
     });
     return __sharedInstance;
 }
@@ -43,8 +43,7 @@
 
 - (void) login:(MHErrorBlock)completionBlock
 {
-    self.accessToken = @"12345";
-    
+    [[MHOAuthManager sharedAuthManager] login];
     completionBlock(nil);
 }
 

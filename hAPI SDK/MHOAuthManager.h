@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MHOAuthManager : NSObject
-@property (nonatomic, strong) NSString *accessToken;
+#import "MHLoginManager.h"
 
+@interface MHOAuthManager : MHLoginManager
+
+@property (nonatomic, strong) NSString *accessToken;
 + (MHOAuthManager *)sharedAuthManager;
 
 // Take in a completion block
-- (void)login:(NSString*)clientID :(NSString*)appURLScheme;
-
+- (void)login;
+- (void)loadCallBackURL:(NSURL*)callbackURL;
 @end

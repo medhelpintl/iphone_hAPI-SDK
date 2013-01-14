@@ -47,7 +47,7 @@
         [[MHOAuthManager sharedAuthManager] addObserver:self forKeyPath:@"accessToken" options:NSKeyValueChangeReplacement context:NULL];
         
         [self.operationQueue setMaxConcurrentOperationCount:1];
-        
+        [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Token token=%@",[self accessToken]]];
         [self setDefaultHeader:@"Content-Type" value:@"text/json"];
         
 #ifdef _SYSTEMCONFIGURATION_H
@@ -56,13 +56,6 @@
     }
     
     return self;
-}
-
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:@"accessToken"]) {
-        [self setDefaultHeader:@"Bearer" value:self.accessToken];
-    }
 }
 
 #pragma mark -

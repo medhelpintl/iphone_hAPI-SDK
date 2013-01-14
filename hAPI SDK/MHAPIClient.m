@@ -11,7 +11,7 @@
 #import "NSDateFormatter+hAPI.h"
 
 #import "MHRequest.h"
-#import "MHLoginClient.h"
+#import "MHLoginManager.h"
 #import "MHError.h"
 
 #define kPerPage @1
@@ -61,7 +61,7 @@
     DLog(@"JSON: %@", json_user_data);
     
 // Perform Request
-    MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
+    MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginManager sharedLoginClient] userID]]];
     [request setMethod:kPOST];
     [request setBody:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:json_user_data options:0 error:nil] encoding:NSUTF8StringEncoding]];
     NSArray *response = (NSArray *)[request start:error];
@@ -107,7 +107,7 @@
     
     DLog(@"JSON: %@", json_user_data);
 // Perform Request
-    MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
+    MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginManager sharedLoginClient] userID]]];
     [request setBody:[NSString stringWithFormat:@"%@", json_user_data]];
     [request setMethod:kPUT];
     NSArray *response = (NSArray *)[request start:error];
@@ -138,7 +138,7 @@
 - (NSArray*) read:(NSArray *)field_names :(NSDate *)startDate :(NSDate *)endDate :(NSDate *)updatedDate :(NSError *__autoreleasing *)error
 {
 // Perform Request
-    MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
+    MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginManager sharedLoginClient] userID]]];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                             [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:field_names options:0 error:nil] encoding:NSUTF8StringEncoding], @"field_names",
                             @1, @"page",
@@ -177,7 +177,7 @@
 //    set query_id
     if (pages > 1 && query_id) {
         for (int i = 1; i < pages; i++) {
-            MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
+            MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginManager sharedLoginClient] userID]]];
             NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
                                     query_id, @"query_id",
                                     i, @"page",
@@ -223,7 +223,7 @@
     }
 
 // Perform Request
-    MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginClient sharedLoginClient] userID]]];
+    MHRequest *request = [[MHRequest alloc] initWithEndPoint:[NSString stringWithFormat:@"/users/%@/vitals", [[MHLoginManager sharedLoginClient] userID]]];
     [request setBody:[NSString stringWithFormat:@"%@", json_user_data]];
     [request setMethod:kDELETE];
     NSArray *response = (NSArray *)[request start:error];

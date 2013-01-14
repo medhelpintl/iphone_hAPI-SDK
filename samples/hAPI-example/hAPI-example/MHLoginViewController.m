@@ -20,7 +20,7 @@
 
 - (IBAction)login:(id)sender
 {
-    [[MHLoginClient sharedLoginClient] login:^(NSError *error) {
+    [MedHelp login:^(NSError *error) {
         if (error == nil) {
             [[MHMasterController sharedMasterControl] home];
         } else {

@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MHLoginManager.h"
+
 @interface MHSessionManager : NSObject
+
+@property (nonatomic, strong) MHLoginManager *loginManager;
+
++ (MHSessionManager*) sharedManager;
 
 @end
