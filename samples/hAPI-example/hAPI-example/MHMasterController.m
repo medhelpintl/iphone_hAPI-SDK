@@ -40,6 +40,11 @@
         UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"medHelp_loading_grey"]];
         [logo setFrame:CGRectMake(self.homeNavController.view.frame.size.width - 20, self.homeNavController.view.frame.size.height - 20, 15, 15)];
         [self.homeNavController.view addSubview:logo];
+        
+        
+        // Make sure it's root
+        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        window.rootViewController = self.homeNavController;
     }
     return self;
 }
@@ -63,14 +68,12 @@
 
 - (void) home
 {
-    // Make sure it's root
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    window.rootViewController = self.homeNavController;
-    
     [self.homeNavController setViewControllers:[NSArray arrayWithObject:self.homeController] animated:self.homeNavController.viewControllers.count > 1];
     
     // Dismiss Login if it exists...
-    [self.homeController dismissViewControllerAnimated:YES completion:^(void) {}];
+    if (self.homeController.presentedViewController != nil) { // iOS5?
+        [self.homeController dismissViewControllerAnimated:YES completion:^(void) {}];
+    }
 }
 
 - (void) read
