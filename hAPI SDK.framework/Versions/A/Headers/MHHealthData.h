@@ -31,4 +31,6 @@
 - (void) setTimeWithNSDate:(NSDate*)time;
 - (NSDate*) getTimeAsNSDate;
 
+- (void) updateWithMHHealthData:(MHHealthData*)health_data;
+
 @end
