@@ -19,6 +19,7 @@
 
 @interface MedHelp : NSObject
 + (void) startWithClientID:(NSString*)clientID clientSecret:(NSString*)clientSecret;
++ (void) startWithClientID:(NSString*)clientID;
 + (NSString*) clientID;
 + (NSString*) clientSecret;
 
