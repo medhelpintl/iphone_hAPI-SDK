@@ -80,7 +80,9 @@
             [self getWeight];
         } else {
             // Pop up
-            [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Update Weight" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil] show];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Update Weight" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil] show];
+            });
         }
     }];
 }
