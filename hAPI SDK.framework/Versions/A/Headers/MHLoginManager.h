@@ -12,7 +12,7 @@
 
 @interface MHLoginManager : NSObject
 
-@property (nonatomic, strong) NSString *userID;
+@property (nonatomic, strong) NSNumber *userID;
 @property (nonatomic, strong) NSString *accessToken;
 
 + (MHLoginManager*) sharedLoginClient;

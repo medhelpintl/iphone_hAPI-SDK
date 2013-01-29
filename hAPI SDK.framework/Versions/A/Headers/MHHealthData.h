@@ -16,7 +16,7 @@
 - (id)initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate*)date;
 - (id)initWithFieldName:(NSString *)fieldName forValue:(id)value andDate:(NSDate *)date andRelativeID:(NSString*)relativeId;
 
-@property (nonatomic, readonly) NSString *userId;
+@property (nonatomic, readonly) NSNumber *userId;
 @property (nonatomic, readonly) NSString *relativeId;
 @property (nonatomic, readonly) NSString *date;
 @property (nonatomic, assign) NSInteger time;
