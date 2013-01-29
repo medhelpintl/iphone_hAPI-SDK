@@ -22,7 +22,7 @@
 - (void)destroyInBackgroundWithBlock:(MHBooleanResultBlock)block;
 
 
-@property (nonatomic, readonly) NSString *uniqueId;
+@property (nonatomic, readonly) NSString *medhelpId;
 @property (nonatomic, strong) NSString *clientId;
 @property (nonatomic, readonly) BOOL deleted;
 

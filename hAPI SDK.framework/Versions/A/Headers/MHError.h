@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kMHErrorDomain @"MedHelp"
+
 enum MHRequestError {
     kNetworkNotAvailable = 1,
     kServerError,
@@ -27,5 +29,7 @@ enum MHRequestError {
 + (MHError*) noTokenError;
 
 + (MHError*) errorWithCode:(int)code userInfo:(NSDictionary*)userInfo;
+
++ (NSString*) medHelpErrorDomain;
 
 @end
