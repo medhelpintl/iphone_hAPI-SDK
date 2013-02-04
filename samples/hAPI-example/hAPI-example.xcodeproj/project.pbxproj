@@ -427,6 +427,8 @@
 		7268BF2B169BA8B40070FAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Charles Fisher (BZN695H294)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Charles Fisher (34DN757Z32)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../..\"",
@@ -435,6 +437,8 @@
 				GCC_PREFIX_HEADER = "hAPI-example/hAPI-example-Prefix.pch";
 				INFOPLIST_FILE = "hAPI-example/hAPI-example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B73003DD-4270-4E4B-9463-0DCB38BF546A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "20FF9D11-6D9A-4DAD-91EA-7706B8A1F6F6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -442,6 +446,8 @@
 		7268BF2C169BA8B40070FAA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Charles Fisher (BZN695H294)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Charles Fisher (BZN695H294)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../..\"",
@@ -450,6 +456,8 @@
 				GCC_PREFIX_HEADER = "hAPI-example/hAPI-example-Prefix.pch";
 				INFOPLIST_FILE = "hAPI-example/hAPI-example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B73003DD-4270-4E4B-9463-0DCB38BF546A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B73003DD-4270-4E4B-9463-0DCB38BF546A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
