@@ -60,11 +60,13 @@
         self.latestWeightLbl.text = [NSString stringWithFormat:@"%@", self.weight.value];
         self.updateWeightBtn.enabled = YES;
         self.updateWeightTextField.enabled = YES;
+        self.deleteWeightBtn.enabled = YES;
     } else {
         // No Weight
         self.latestWeightLbl.text = @"--";
         self.updateWeightBtn.enabled = NO;
         self.updateWeightTextField.enabled = NO;
+        self.deleteWeightBtn.enabled = NO;
     }
 }
 
@@ -79,6 +81,7 @@
         if (succeeded) {
             [self getWeight];
         } else {
+            NSLog(@"Error: %@", error);
             // Pop up
             dispatch_async(dispatch_get_main_queue(), ^(void){
                 [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Update Weight" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil] show];
@@ -98,8 +101,24 @@
         if (succeeded) {
             [self getWeight];
         } else {
+            NSLog(@"Error: %@", error);
             // Pop up
             [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Save Weight" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil] show];
+        }
+    }];
+}
+
+- (IBAction)deleteWeight:(id)sender
+{
+    [self.weight destroyInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self getWeight];
+        } else {
+            NSLog(@"Error: %@", error);
+            // Pop up
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Delete Weight" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil] show];
+            });
         }
     }];
 }
@@ -125,6 +144,7 @@
         if (error == nil) {
             [[MHMasterController sharedMasterControl] login];
         } else {
+            NSLog(@"Error: %@", error);
             // Pop up
             [[[UIAlertView alloc] initWithTitle:@"MedHelp" message:@"Failed to Logout" delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles: nil] show];
         }

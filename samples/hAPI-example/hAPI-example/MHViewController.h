@@ -15,9 +15,11 @@
 @property (nonatomic, strong) IBOutlet UITextField *addWeightTextField;
 @property (nonatomic, strong) IBOutlet UIButton *updateWeightBtn;
 @property (nonatomic, strong) IBOutlet UIButton *addWeightBtn;
+@property (nonatomic, strong) IBOutlet UIButton *deleteWeightBtn;
 
 - (IBAction)updateWeight:(id)sender;
 - (IBAction)newWeight:(id)sender;
+- (IBAction)deleteWeight:(id)sender;
 
 - (IBAction)read:(id)sender;
 - (IBAction)logout:(id)sender;
