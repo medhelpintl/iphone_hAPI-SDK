@@ -13,19 +13,15 @@
 @interface MHLoginManager : NSObject
 
 @property (nonatomic, strong) NSNumber *userID;
-@property (nonatomic, strong) NSString *accessToken;
+//@property (nonatomic, strong) NSString *accessToken;
 
 + (MHLoginManager*) sharedLoginClient;
 
 - (void) anonCreate:(MHErrorBlock)completionBlock;
 
 - (void) login:(MHErrorBlock)completionBlock;
-#warning PRIVATE TO MEDHELP
-- (void) login:(NSString*)userName :(NSString*)password :(MHErrorBlock)completionBlock;
 
 - (void) logout:(MHErrorBlock)completionBlock;
-
-
 
 - (BOOL) isLoggedIn;
 
