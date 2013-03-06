@@ -10,11 +10,11 @@
 
 @interface MHBatch : NSObject
 
-+ (void)saveAll:(NSArray*)user_data error:(NSError**)error;
-+ (void)saveAllInBackground:(NSArray*)user_data;
-+ (void)saveAll:(NSArray *)user_data inBackgroundWithBlock:(MHErrorBlock)block;
-+ (void)destroyAll:(NSArray*)user_data error:(NSError**)error;
-+ (void)destroyAllInBackground:(NSArray*)user_data;
-+ (void)destroyAll:(NSArray *)user_data inBackgroundWithBlock:(MHErrorBlock)block;
++ (void)save:(NSArray*)user_data error:(NSError**)error;
++ (void)saveInBackground:(NSArray*)user_data;
++ (void)save:(NSArray *)user_data inBackgroundWithBlock:(MHErrorBlock)block;
++ (void)destroy:(NSArray*)user_data error:(NSError**)error;
++ (void)destroyInBackground:(NSArray*)user_data;
++ (void)destroy:(NSArray *)user_data inBackgroundWithBlock:(MHErrorBlock)block;
 
 @end

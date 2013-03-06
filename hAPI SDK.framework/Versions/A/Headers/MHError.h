@@ -15,7 +15,8 @@ enum MHRequestError {
     kServerError,
     kServerNotAvailable,
     kInvalidToken,
-    kNoToken // not logged in
+    kNoToken, // not logged in
+    kDataError
 };
 
 @interface MHError : NSError

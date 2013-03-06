@@ -41,7 +41,7 @@
 
 - (void) getWeight
 {
-    [MHQuery getLatestUserData:@"Weight" inBackgroundWithBlock:^(MHHealthData *user_data, NSError *error){
+    [MHQuery queryLatestUserData:@"Weight" inBackgroundWithBlock:^(MHHealthData *user_data, NSError *error){
         self.weight = user_data;
         
         dispatch_async(dispatch_get_main_queue(), ^(void){

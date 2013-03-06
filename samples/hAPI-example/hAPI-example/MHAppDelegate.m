@@ -15,10 +15,7 @@
 @implementation MHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Initialize MedHelp with your App ID
-    [MedHelp startWithClientID:@"MH1234" clientSecret:@"ssshhhh, it's a secret"];
-    
+{    
     // Not the best way for initializing the window...
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];

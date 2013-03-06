@@ -11,8 +11,6 @@
 #import "GlobalConstants.h"
 
 @interface MHObject : NSObject
-// This goes in another object...
-+ (BOOL)saveAll:(NSArray*)user_data;
 
 - (BOOL)save:(NSError**)error;
 - (void)saveInBackground;
@@ -21,10 +19,12 @@
 - (void)destroyInBackground;
 - (void)destroyInBackgroundWithBlock:(MHBooleanResultBlock)block;
 
-
 @property (nonatomic, readonly) NSString *medhelpId;
 @property (nonatomic, strong) NSString *clientId;
 @property (nonatomic, readonly) BOOL deleted;
+//
+@property (nonatomic, assign) BOOL saved;
+@property (nonatomic, strong) NSString *statusMessage;
 
 // HELPER
 - (NSDictionary*) getAsDictionary;

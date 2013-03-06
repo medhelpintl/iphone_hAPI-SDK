@@ -12,11 +12,13 @@
 
 @interface MHQuery : NSObject
 
+#warning PASS ERRORS
+
 #pragma mark - Single User_Data
-+ (MHHealthData*) getUserDataWithID:(NSString*)identifier;
-+ (void) getUserDataWithID:(NSString*)identifier inBackgroundWithBlock:(MHHealthDataResultBlock)block;
-+ (MHHealthData*) getLatestUserData:(NSString*) field_name;
-+ (void) getLatestUserData:(NSString*) field_name inBackgroundWithBlock:(MHHealthDataResultBlock)block;
++ (MHHealthData*) queryUserDataWithID:(NSString*)identifier;
++ (void) queryUserDataWithID:(NSString*)identifier inBackgroundWithBlock:(MHHealthDataResultBlock)block;
++ (MHHealthData*) queryLatestUserData:(NSString*) field_name;
++ (void) queryLatestUserData:(NSString*) field_name inBackgroundWithBlock:(MHHealthDataResultBlock)block;
 
 #pragma mark - Multiple User_Data
 + (NSArray*) queryUserDataForFields:(NSArray*) field_names fromDate:(NSDate*)startDate toDate:(NSDate*)endDate;
