@@ -23,8 +23,8 @@
 @property (nonatomic, strong) NSString *clientId;
 @property (nonatomic, readonly) BOOL deleted;
 //
-@property (nonatomic, assign) BOOL saved;
-@property (nonatomic, strong) NSString *statusMessage;
+@property (nonatomic, readonly) BOOL saved;
+@property (nonatomic, readonly) NSString *statusMessage;
 
 // HELPER
 - (NSDictionary*) getAsDictionary;
