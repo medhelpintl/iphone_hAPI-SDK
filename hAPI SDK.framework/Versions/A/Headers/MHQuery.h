@@ -22,9 +22,9 @@
 
 #pragma mark - Multiple User_Data
 + (NSArray*) queryUserDataForFields:(NSArray*) field_names fromDate:(NSDate*)startDate toDate:(NSDate*)endDate;
-+ (NSArray*) queryUserDataForFields:(NSArray*) field_names fromDate:(NSDate*)startDate toDate:(NSDate*)endDate updatedAfter:(NSDate*)updatedDate;
++ (NSArray*) queryUserDataForFields:(NSArray*) field_names fromDate:(NSDate*)startDate toDate:(NSDate*)endDate updatedAfter:(NSDate*)updatedDate includeDeleted:(BOOL)includeDeleted;
 + (void) queryUserDataForFields:(NSArray*) field_names fromDate:(NSDate*)startDate toDate:(NSDate*)endDate inBackgroundWithBlock:(MHArrayResultBlock)block;
-+ (void) queryUserDataForFields:(NSArray*) field_names fromDate:(NSDate*)startDate toDate:(NSDate*)endDate updatedAfter:(NSDate*)updatedDate inBackgroundWithBlock:(MHArrayResultBlock)block;
++ (void) queryUserDataForFields:(NSArray*) field_names fromDate:(NSDate*)startDate toDate:(NSDate*)endDate updatedAfter:(NSDate*)updatedDate includeDeleted:(BOOL)includeDeleted inBackgroundWithBlock:(MHArrayResultBlock)block;
 
 
 @end
