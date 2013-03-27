@@ -23,6 +23,9 @@
 + (NSString*) clientID;
 + (NSString*) clientSecret;
 
++ (NSString*) baseURL;
++ (void) setBaseURL:(NSString*)baseURL;
+
 // OAuth Login Helper?
 + (void) login:(MHErrorBlock)completionBlock;
 + (void)loadCallBackURL:(NSURL*)callbackURL;
