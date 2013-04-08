@@ -16,6 +16,7 @@
 typedef void (^MHBooleanResultBlock)(BOOL succeeded, NSError *error);
 typedef void (^MHHealthDataResultBlock)(MHHealthData *user_data, NSError *error);
 typedef void (^MHArrayResultBlock)(NSArray *user_data, NSError *error);
+typedef void (^MHArrayNewDataBlock)(NSArray *user_data, BOOL new_data);
 
 typedef void (^MHErrorBlock)(NSError *error);
 
