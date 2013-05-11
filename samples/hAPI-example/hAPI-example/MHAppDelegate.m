@@ -20,7 +20,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
-    [MedHelp setBaseURL:@"https://hapi.medhelp.ws"];
+    [MedHelp setBaseURL:@"https://hapi.medhelp.ws"]; // This the default value, and does not need to be set
     [MedHelp startWithClientID:@"hd42sRGKw5f5bAYEWAiiyyKTfwIh8X77" clientSecret:@"Dvi6xFlbUlziGgk1"];
     
     [[MHMasterController sharedMasterControl] home];
