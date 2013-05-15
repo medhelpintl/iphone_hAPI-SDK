@@ -28,7 +28,7 @@
 
 // OAuth Login Helper?
 + (void) login:(MHErrorBlock)completionBlock;
-+ (void) loadCallBackURL:(NSURL*)callbackURL;
++ (void)loadCallBackURL:(NSURL*)callbackURL;
 + (void) logout:(MHErrorBlock)completionBlock;
 + (BOOL) isLoggedIn;
 
