@@ -12,7 +12,7 @@
 
 @interface MHQuery : NSObject
 
-#warning PASS ERRORS
+#warning MedHelp PASS ERRORS
 
 #pragma mark - Single User_Data
 + (MHHealthData*) queryUserDataWithID:(NSString*)identifier;
