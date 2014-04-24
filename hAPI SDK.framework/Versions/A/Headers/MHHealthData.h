@@ -25,6 +25,8 @@
 @property (nonatomic, readonly) NSDate *updated_at;
 @property (nonatomic, readonly) NSDate *created_at;
 @property (nonatomic, readonly) BOOL immutable;
+@property (nonatomic, readonly) NSNumber *source_id;
+@property (nonatomic, readonly) NSString *source_type;
 
 // Helper
 - (void) setDateWithNSDate:(NSDate*)date;
