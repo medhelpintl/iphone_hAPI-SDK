@@ -30,6 +30,6 @@
 - (NSDictionary*) getAsDictionary;
 // INIT
 - (id) initWithDictionary:(NSDictionary*)data;
-- (id) initWithID:(NSString*)clientId;
+//- (id) initWithID:(NSString*)clientId;
 
 @end

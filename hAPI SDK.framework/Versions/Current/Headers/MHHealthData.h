@@ -27,6 +27,7 @@
 @property (nonatomic, readonly) BOOL immutable;
 @property (nonatomic, readonly) NSNumber *source_id;
 @property (nonatomic, readonly) NSString *source_type;
+@property (nonatomic, readonly) NSString *origin;
 
 // Helper
 - (void) setDateWithNSDate:(NSDate*)date;
