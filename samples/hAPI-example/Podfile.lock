@@ -1,17 +1,17 @@
 PODS:
   - AFNetworking (1.3.4)
-  - hAPI SDK (1.0.0):
+  - hAPI-SDK (1.0.0):
     - AFNetworking (~> 1.3.3)
 
 DEPENDENCIES:
-  - hAPI SDK (from `../../`)
+  - hAPI-SDK (from `../../`)
 
 EXTERNAL SOURCES:
-  hAPI SDK:
+  hAPI-SDK:
     :path: ../../
 
 SPEC CHECKSUMS:
   AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
-  hAPI SDK: d8bfe03e45b93ed187059cec1c1aacda307540ed
+  hAPI-SDK: 3664c64c2dd1ea460246a6db6cef8299d69b2b49
 
 COCOAPODS: 0.34.4

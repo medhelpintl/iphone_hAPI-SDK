@@ -8,9 +8,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "hAPI SDK"
+  s.name             = "hAPI-SDK"
   s.version          = "1.0.0"
-  s.summary          = "hAPI SDK"
+  s.summary          = "hAPI-SDK"
   s.description      = <<-DESC
                        An optional longer description of MyLibrary
 
