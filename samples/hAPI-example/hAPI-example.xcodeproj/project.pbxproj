@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61A7D8072DA67170A5B055B3 /* libPods-hAPI-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A17D1587ABDEA918BA7DBAF7 /* libPods-hAPI-example.a */; };
 		7268BF0B169BA8B40070FAA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BF0A169BA8B40070FAA1 /* UIKit.framework */; };
 		7268BF0D169BA8B40070FAA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BF0C169BA8B40070FAA1 /* Foundation.framework */; };
 		7268BF0F169BA8B40070FAA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BF0E169BA8B40070FAA1 /* CoreGraphics.framework */; };
@@ -44,10 +45,10 @@
 		7268BFC2169F42890070FAA1 /* medHelp_loading_color@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7268BFBE169F42880070FAA1 /* medHelp_loading_color@2x.png */; };
 		7268BFC3169F42890070FAA1 /* medHelp_loading_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 7268BFBF169F42880070FAA1 /* medHelp_loading_grey.png */; };
 		7268BFC4169F42890070FAA1 /* medHelp_loading_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7268BFC0169F42890070FAA1 /* medHelp_loading_grey@2x.png */; };
-		7268BFD216A0D1250070FAA1 /* hAPI SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7268BFD116A0D1250070FAA1 /* hAPI SDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F9FBBA3EADC7B52AF0143D2 /* Pods-hAPI-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hAPI-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hAPI-example/Pods-hAPI-example.debug.xcconfig"; sourceTree = "<group>"; };
 		7268BF06169BA8B40070FAA1 /* hAPI-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hAPI-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7268BF0A169BA8B40070FAA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7268BF0C169BA8B40070FAA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,7 +94,8 @@
 		7268BFBE169F42880070FAA1 /* medHelp_loading_color@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medHelp_loading_color@2x.png"; sourceTree = "<group>"; };
 		7268BFBF169F42880070FAA1 /* medHelp_loading_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medHelp_loading_grey.png; sourceTree = "<group>"; };
 		7268BFC0169F42890070FAA1 /* medHelp_loading_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medHelp_loading_grey@2x.png"; sourceTree = "<group>"; };
-		7268BFD116A0D1250070FAA1 /* hAPI SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "hAPI SDK.framework"; path = "../../hAPI SDK.framework"; sourceTree = "<group>"; };
+		7E7BB835B9F47645C8975E15 /* Pods-hAPI-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hAPI-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-hAPI-example/Pods-hAPI-example.release.xcconfig"; sourceTree = "<group>"; };
+		A17D1587ABDEA918BA7DBAF7 /* libPods-hAPI-example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hAPI-example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,19 +107,29 @@
 				7268BF0D169BA8B40070FAA1 /* Foundation.framework in Frameworks */,
 				7268BF0F169BA8B40070FAA1 /* CoreGraphics.framework in Frameworks */,
 				7268BF4C169CA27C0070FAA1 /* SystemConfiguration.framework in Frameworks */,
-				7268BFD216A0D1250070FAA1 /* hAPI SDK.framework in Frameworks */,
+				61A7D8072DA67170A5B055B3 /* libPods-hAPI-example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		625DC750A337F25736AEAA53 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F9FBBA3EADC7B52AF0143D2 /* Pods-hAPI-example.debug.xcconfig */,
+				7E7BB835B9F47645C8975E15 /* Pods-hAPI-example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7268BEFB169BA8B40070FAA1 = {
 			isa = PBXGroup;
 			children = (
 				7268BF10169BA8B40070FAA1 /* hAPI-example */,
 				7268BF09169BA8B40070FAA1 /* Frameworks */,
 				7268BF07169BA8B40070FAA1 /* Products */,
+				625DC750A337F25736AEAA53 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,11 +144,11 @@
 		7268BF09169BA8B40070FAA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7268BFD116A0D1250070FAA1 /* hAPI SDK.framework */,
 				7268BF4B169CA27C0070FAA1 /* SystemConfiguration.framework */,
 				7268BF0A169BA8B40070FAA1 /* UIKit.framework */,
 				7268BF0C169BA8B40070FAA1 /* Foundation.framework */,
 				7268BF0E169BA8B40070FAA1 /* CoreGraphics.framework */,
+				A17D1587ABDEA918BA7DBAF7 /* libPods-hAPI-example.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,9 +263,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7268BF2A169BA8B40070FAA1 /* Build configuration list for PBXNativeTarget "hAPI-example" */;
 			buildPhases = (
+				8EB3A2BBA3D9AAE29D307048 /* Check Pods Manifest.lock */,
 				7268BF02169BA8B40070FAA1 /* Sources */,
 				7268BF03169BA8B40070FAA1 /* Frameworks */,
 				7268BF04169BA8B40070FAA1 /* Resources */,
+				1FF07BF67A1EA4EA775889A8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,6 +341,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FF07BF67A1EA4EA775889A8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hAPI-example/Pods-hAPI-example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8EB3A2BBA3D9AAE29D307048 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7268BF02169BA8B40070FAA1 /* Sources */ = {
@@ -426,6 +473,7 @@
 		};
 		7268BF2B169BA8B40070FAA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F9FBBA3EADC7B52AF0143D2 /* Pods-hAPI-example.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Charles Fisher (BZN695H294)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Charles Fisher (34DN757Z32)";
@@ -445,6 +493,7 @@
 		};
 		7268BF2C169BA8B40070FAA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E7BB835B9F47645C8975E15 /* Pods-hAPI-example.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Charles Fisher (BZN695H294)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Charles Fisher (BZN695H294)";
