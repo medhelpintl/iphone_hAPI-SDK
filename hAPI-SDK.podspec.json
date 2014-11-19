@@ -2,7 +2,7 @@
   "name": "hAPI-SDK",
   "version": "1.0.0",
   "summary": "hAPI-SDK",
-  "description": "                       An optional longer description of MyLibrary\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "description": "iOS Helper Methods for interacting with MedHelp's 'Health' API or 'hAPI'",
   "homepage": "https://github.com/medhelpintl/iphone_hAPI-SDK",
   "license": "MIT",
   "authors": {
@@ -16,13 +16,7 @@
     "ios": "6.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes",
-  "resource_bundles": {
-    "hAPI SDK": [
-      "Pod/Assets/*.png",
-      "*.a"
-    ]
-  },
+  "source_files": "Pod/Headers",
   "preserve_paths": "Pod/libhAPISDK.a",
   "xcconfig": {
     "LIBRARY_SEARCH_PATHS": "\"$(SRCROOT)/Pods/**\""
