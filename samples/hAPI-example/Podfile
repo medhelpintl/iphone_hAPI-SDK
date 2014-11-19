@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+
+target 'hAPI-example', :exclusive => true do
+  pod "hAPI SDK", :path => "../../"
+
+  
+end

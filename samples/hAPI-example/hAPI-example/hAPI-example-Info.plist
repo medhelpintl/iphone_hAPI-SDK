@@ -33,6 +33,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>mh123</string>
 				<string>com.myapp.hapi</string>
 			</array>
 		</dict>
