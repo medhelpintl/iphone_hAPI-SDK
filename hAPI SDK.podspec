@@ -17,11 +17,11 @@ Pod::Spec.new do |s|
                        * Markdown format.
                        * Don't worry about the indent, we strip it!
                        DESC
-  s.homepage         = "https://github.com/medhelp_fishstix/MyLibrary"
+  s.homepage         = "https://github.com/medhelpintl/iphone_hAPI-SDK"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "medhelp" => "iphone@medhelp.org" }
-  s.source           = { :git => "https://github.com/medhelp_fishstix/MyLibrary.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/medhelpintl/iphone_hAPI-SDK.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '6.0'
@@ -33,10 +33,8 @@ Pod::Spec.new do |s|
   }
 
   s.preserve_paths = 'Pod/libhAPISDK.a' 
-#  s.library = 'libhAPISDK'
   s.xcconfig = {'LIBRARY_SEARCH_PATHS'=>"\"$(SRCROOT)/Pods/**\""}  
   s.ios.vendored_library = 'Pod/libhAPISDK.a'
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  #
   s.dependency 'AFNetworking', '~> 1.3.3'
 end

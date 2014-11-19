@@ -1,0 +1,38 @@
+{
+  "name": "hAPI SDK",
+  "version": "1.0.0",
+  "summary": "hAPI SDK",
+  "description": "                       An optional longer description of MyLibrary\n\n                       * Markdown format.\n                       * Don't worry about the indent, we strip it!\n",
+  "homepage": "https://github.com/medhelpintl/iphone_hAPI-SDK",
+  "license": "MIT",
+  "authors": {
+    "medhelp": "iphone@medhelp.org"
+  },
+  "source": {
+    "git": "https://github.com/medhelpintl/iphone_hAPI-SDK.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes",
+  "resource_bundles": {
+    "hAPI SDK": [
+      "Pod/Assets/*.png",
+      "*.a"
+    ]
+  },
+  "preserve_paths": "Pod/libhAPISDK.a",
+  "xcconfig": {
+    "LIBRARY_SEARCH_PATHS": "\"$(SRCROOT)/Pods/**\""
+  },
+  "ios": {
+    "vendored_libraries": "Pod/libhAPISDK.a"
+  },
+  "dependencies": {
+    "AFNetworking": [
+      "~> 1.3.3"
+    ]
+  }
+}
