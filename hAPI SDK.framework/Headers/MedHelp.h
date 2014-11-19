@@ -32,4 +32,8 @@
 + (void) logout:(MHErrorBlock)completionBlock;
 + (BOOL) isLoggedIn;
 
+// Debug
++ (void)setDebug:(BOOL)debugMode;
++ (BOOL)isDebugMode;
+
 @end
