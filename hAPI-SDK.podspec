@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.summary          = "hAPI-SDK"
   s.description      = "iOS Helper Methods for interacting with MedHelp's 'Health' API or 'hAPI'" 
   s.homepage         = "https://github.com/medhelpintl/iphone_hAPI-SDK"
-  s.license          = "MIT"
+  s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = { "medhelp" => "iphone@medhelp.org" }
   s.source           = { :git => "https://github.com/medhelpintl/iphone_hAPI-SDK.git", :tag => s.version.to_s }
 
