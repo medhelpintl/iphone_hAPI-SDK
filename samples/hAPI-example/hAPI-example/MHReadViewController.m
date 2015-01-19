@@ -8,8 +8,6 @@
 
 #import "MHReadViewController.h"
 
-#import <hAPI SDK/MedHelp.h>
-
 @interface MHReadViewController ()
 @property (nonatomic, strong) NSArray *user_data;
 @end

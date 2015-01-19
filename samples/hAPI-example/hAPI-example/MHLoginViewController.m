@@ -8,8 +8,6 @@
 
 #import "MHLoginViewController.h"
 
-#import <hAPI SDK/MedHelp.h>
-
 #import "MHMasterController.h"
 
 @interface MHLoginViewController ()

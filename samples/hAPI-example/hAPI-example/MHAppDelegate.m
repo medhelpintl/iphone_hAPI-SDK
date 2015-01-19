@@ -10,8 +10,6 @@
 #import "MHViewController.h"
 #import "MHMasterController.h"
 
-#import <hAPI SDK/MedHelp.h>
-
 @implementation MHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
