@@ -26,5 +26,5 @@ Pod::Spec.new do |s|
 #  s.xcconfig = {'LIBRARY_SEARCH_PATHS'=>"\"$(SRCROOT)/Pods/**\""}  
   s.ios.vendored_library = 'Pod/libhAPISDK.a'
   #
-  s.dependency 'AFNetworking', '~> 1.3.3'
+#  s.dependency 'AFNetworking', '~> 1.3.3'
 end
