@@ -23,8 +23,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Pod/Headers'
 
   s.preserve_paths = 'Pod/libhAPISDK.a' 
-#  s.xcconfig = {'LIBRARY_SEARCH_PATHS'=>"\"$(SRCROOT)/Pods/**\""}  
   s.ios.vendored_library = 'Pod/libhAPISDK.a'
-  #
-#  s.dependency 'AFNetworking', '~> 1.3.3'
 end
