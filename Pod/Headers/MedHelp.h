@@ -17,6 +17,14 @@
 
 #import "MHError.h"
 
+@protocol MedHelpLogger
+
+@required
+- (void)logInfo:(NSString*)info;
+
+@end
+
+
 @interface MedHelp : NSObject
 + (void) startWithClientID:(NSString*)clientID clientSecret:(NSString*)clientSecret;
 + (void) startWithClientID:(NSString*)clientID;
@@ -35,5 +43,9 @@
 // Debug
 + (void)setDebug:(BOOL)debugMode;
 + (BOOL)isDebugMode;
+
+// Breadcrumbs/Logging
++ (void)setLogger:(id<MedHelpLogger>)logger;
++ (void)logInfo:(NSString*)info;
 
 @end
