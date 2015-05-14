@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 
 
+@interface MHHapiReadOperation : NSOperation
+@property (nonatomic, strong) NSError *error;
+@property (nonatomic, strong) NSArray *results;
+- (id) initWithReadVariables:(NSArray*) fieldNames :(NSDate*)startDate :(NSDate*)endDate :(NSDate*)updatedDate :(BOOL)includeDeleted :(BOOL)lastValue;
+@end
+
 @interface MHHapiOperation : NSOperation
 
 @property (nonatomic, strong) NSError *error;
