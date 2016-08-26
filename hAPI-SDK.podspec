@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "hAPI-SDK"
-  s.version          = "1.0.31"
+  s.version          = "1.0.32"
   s.summary          = "hAPI-SDK"
   s.description      = "iOS Helper Methods for interacting with MedHelp's 'Health' API or 'hAPI'" 
   s.homepage         = "https://github.com/medhelpintl/iphone_hAPI-SDK"
